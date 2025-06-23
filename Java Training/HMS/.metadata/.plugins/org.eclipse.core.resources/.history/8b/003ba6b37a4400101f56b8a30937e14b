@@ -1,0 +1,140 @@
+package com.java.hms.model;
+
+import java.sql.Timestamp;
+import java.util.Set;
+
+public class Provider {
+
+    private String providerId;
+    private String username;
+    private String name;
+    private String email;
+    private String phone;
+    private String password;
+    private String speciality;
+    private String address;
+    private Gender gender;
+    private boolean isApproved;
+    private Timestamp createdAt;
+    
+    private Set<ProviderAvailability> availabilities;
+    private Set<Appointment> appointments;
+    private Set<MedicalHistory> medicalHistories;
+
+    public String getProviderId() {
+        return providerId;
+    }
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public Gender getGender() {
+		return gender;
+	}
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+	public boolean isApproved() {
+        return isApproved;
+    }
+    public void setApproved(boolean isApproved) {
+        this.isApproved = isApproved;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+    public Set<ProviderAvailability> getAvailabilities() {
+		return availabilities;
+	}
+	public void setAvailabilities(Set<ProviderAvailability> availabilities) {
+		this.availabilities = availabilities;
+	}
+	public Set<Appointment> getAppointments() {
+		return appointments;
+	}
+	public void setAppointments(Set<Appointment> appointments) {
+		this.appointments = appointments;
+	}
+	public Set<MedicalHistory> getMedicalHistories() {
+		return medicalHistories;
+	}
+	public void setMedicalHistories(Set<MedicalHistory> medicalHistories) {
+		this.medicalHistories = medicalHistories;
+	}
+
+	public Provider(String providerId, String username, String name, String email, String phone, String password,
+			String speciality, String address, Gender gender, boolean isApproved, Timestamp createdAt,
+			Set<ProviderAvailability> availabilities, Set<Appointment> appointments,
+			Set<MedicalHistory> medicalHistories) {
+		this.providerId = providerId;
+		this.username = username;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.password = password;
+		this.speciality = speciality;
+		this.address = address;
+		this.gender = gender;
+		this.isApproved = isApproved;
+		this.createdAt = createdAt;
+		this.availabilities = availabilities;
+		this.appointments = appointments;
+		this.medicalHistories = medicalHistories;
+	}
+	public Provider() {
+		this.availabilities = new ProviderA
+        super();
+    }
+}

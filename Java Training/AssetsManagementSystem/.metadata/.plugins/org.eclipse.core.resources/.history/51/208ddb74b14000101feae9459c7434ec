@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+   "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.jsf.model.Asset" table="asset">
+        
+        <id name="assetId" column="asset_id">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="assetName" column="asset_name" not-null="true" />
+        <property name="assetTag" column="asset_tag" unique="true" not-null="true" />
+        <property name="category" column="category" not-null="true" />
+        <property name="quantity" column="quantity" not-null="true" />
+        <property name="status" column="status" not-null="true" />
+        
+        <many-to-one name="assignedTo" class="com.java.jsf.model.Employee" column="assigned_to" not-null="false" />
+        
+        <property name="assignedDate" column="assigned_date" type="date" not-null="false" />
+        
+    </class>
+</hibernate-mapping>

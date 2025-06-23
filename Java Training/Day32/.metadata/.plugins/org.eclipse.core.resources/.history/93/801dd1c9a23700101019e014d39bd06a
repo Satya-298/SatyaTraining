@@ -1,0 +1,12 @@
+package com.java.ejb;
+
+import java.sql.Connection;
+import java.util.ResourceBundle;
+
+public class ConnectionHelper {
+	
+	public static Connection getConnection() {
+		ResourceBundle 
+	}
+
+}

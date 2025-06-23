@@ -1,0 +1,63 @@
+package com.java.jdbc.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.java.jdbc.model.IncidentType;
+import com.java.jdbc.model.Incidents;
+import com.java.jdbc.model.Reports;
+import com.java.jdbc.model.Status;
+import com.java.jdbc.util.ConnectionHelper;
+
+public class CrimeAnalysisServiceImpl implements ICrimeAnalysisService{
+
+	private List<Incidents> incidentList = new ArrayList<Incidents>();
+	int count = 1;
+	
+	Connection conn;
+	PreparedStatement pstmt;
+	
+	
+	@Override
+	public boolean createIncident(Incidents incident) throws ClassNotFoundException, SQLException {
+		
+		conn = ConnectionHelper.getConnection();
+		String cmd = "Insert INTO Incidents(IncidentType, IncidentDate, Latitude, Longitude, Descriptions, Status, VictimID, SuspectID, OfficerID) Values(?,?,?,?,?,?,?,?,?)";
+//		incident.setIncidentId(count);
+//		count++;
+//		
+//		incident.setIncidentId(count);
+//		incident.setIncidentDate(new Date());
+//		
+		return false;
+	}
+
+	@Override
+	public boolean updateIncidentStatus(Status status, int incidentId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Incidents> getIncidentsInDateRange(Date startDate, Date endDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Incidents> searchIncidents(IncidentType criteria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Reports generateIncidentReport(Incidents incident) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

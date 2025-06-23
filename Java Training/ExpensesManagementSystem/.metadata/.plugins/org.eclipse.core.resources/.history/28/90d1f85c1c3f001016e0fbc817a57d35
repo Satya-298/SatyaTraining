@@ -1,0 +1,116 @@
+package com.java.jsf.controller;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.java.ejb.beans.MembersEjbImpl;
+import com.java.ejb.model.Groups;
+import com.java.ejb.model.Users;
+import com.java.jsf.dao.MembersDao;
+import com.java.jsf.model.GroupMembers;
+
+public class MembersController {
+
+    private MembersDao membersDao;
+    private GroupMembers members;
+    private com.java.ejb.model.GroupMembers ejbMembers;
+    private MembersEjbImpl ejbMembersImpl;
+    private com.java.ejb.model.Users admin;
+    private int groupId;
+
+    // Getters and Setters
+
+    public MembersDao getMembersDao() {
+        return membersDao;
+    }
+
+    public void setMembersDao(MembersDao membersDao) {
+        this.membersDao = membersDao;
+    }
+
+    public GroupMembers getMembers() {
+        return members;
+    }
+
+    public void setMembers(GroupMembers members) {
+        this.members = members;
+    }
+
+    public com.java.ejb.model.GroupMembers getEjbMembers() {
+        if (ejbMembers == null) {
+            ejbMembers = new com.java.ejb.model.GroupMembers();
+            ejbMembers.setUsers(new com.java.ejb.model.Users());
+            ejbMembers.setGroups(new com.java.ejb.model.Groups());
+        }
+        return ejbMembers;
+    }
+
+    public void setEjbMembers(com.java.ejb.model.GroupMembers ejbMembers) {
+        this.ejbMembers = ejbMembers;
+    }
+
+    public MembersEjbImpl getEjbMembersImpl() {
+        if (ejbMembersImpl == null) {
+            ejbMembersImpl = new MembersEjbImpl();
+        }
+        return ejbMembersImpl;
+    }
+
+    public void setEjbMembersImpl(MembersEjbImpl ejbMembersImpl) {
+        this.ejbMembersImpl = ejbMembersImpl;
+    }
+
+    public com.java.ejb.model.Users getAdmin() {
+        if (admin == null) {
+            admin = new com.java.ejb.model.Users();
+        }
+        return admin;
+    }
+
+    public void setAdmin(com.java.ejb.model.Users admin) {
+        this.admin = admin;
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
+    // Business Methods
+
+    public List<GroupMembers> showMembers() {
+        return membersDao.showMembersDao();
+    }
+
+//    // This method throws exceptions and does not catch them
+//    public String loginAndAddMembers() throws ClassNotFoundException, SQLException {
+//        return getEjbMembersImpl().loginAndAddMember(admin, getEjbMembers(), groupId);
+//    }
+    
+    public Users getAdminByEmail(String email) {
+        try {
+            return ejbMembersImpl.findUserByEmail(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Groups getGroupForAdminEmail(String email) {
+        try {
+            Users admin = ejbMembersImpl.findUserByEmail(email);
+            if (admin == null) {
+                System.out.println("No admin found for email: " + email);
+                return null;
+            }
+
+            return ejbMembersImpl.findGroupByAdminId(admin.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}

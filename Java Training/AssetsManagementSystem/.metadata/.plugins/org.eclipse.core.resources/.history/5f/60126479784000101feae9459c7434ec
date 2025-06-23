@@ -1,0 +1,42 @@
+package com.java.jsf.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.java.jsf.model.Employee;
+
+public class EmployeeDaoImpl implements EmployeeDao{
+
+    @Override
+    public String addEmployee(Employee employee) throws ClassNotFoundException, SQLException {
+        String result;
+
+        String sql = "INSERT INTO employee (email, password) VALUES (?, ?)";
+        Connection conn = ConnectionHelper.getConnection();
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        String encryptedPwd = EncryptPassword.getCode(employee.getPassword());
+
+        stmt.setString(1, employee.getEmail());
+        stmt.setString(2, encryptedPwd);
+
+        int rows = stmt.executeUpdate();
+        result = (rows > 0) ? "EmployeeLogin.jsp?faces-redirect=true" : "EmployeeRegister.jsp?faces-redirect=true";
+
+        stmt.close();
+        conn.close();
+
+        return result;
+    }
+
+
+	@Override
+	public String loginEmployee(String email, String password) throws ClassNotFoundException, SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}

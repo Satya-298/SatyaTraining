@@ -1,0 +1,45 @@
+package com.java.hms.dao;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.hms.model.Provider;
+import com.java.hms.util.SessionHelper;
+
+public class ProviderDaoImpl {
+	
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+    public String addProvider(Provider provider) {
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+	    String latestId = getLatestProviderId();
+	    String newId = generateProviderId(latestId);
+	    provider.setProviderId(newId);
+	    session.save(provider);
+	    session.close(); 
+	    return "Provider added successfully with ID: " + newId;
+		
+	}
+	
+	private String getLatestProviderId() {
+        sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Query query = session.createQuery("SELECT MAX(p.providerId) FROM Provider p");
+        String latestId = (String) query.uniqueResult();
+        return latestId;
+    }
+
+    private String generateProviderId(String latestId) {
+        if (latestId == null) {
+            return "P001";
+        } else {
+            int id = Integer.parseInt(latestId.substring(1));
+            id++;
+            return "P" + String.format("%03d", id);
+        }
+
+}

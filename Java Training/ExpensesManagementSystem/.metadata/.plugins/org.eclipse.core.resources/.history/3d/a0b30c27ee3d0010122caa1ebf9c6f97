@@ -1,0 +1,11 @@
+package com.java.jsf.model;
+
+import java.io.Serializable;
+
+public class Splits implements Serializable {
+    
+    private int id;
+    private Expenses expense;  // expense_id INT NOT NULL, FK to expenses(id)
+    private Users user;        // user_id INT NOT NULL, FK to users(id)
+    private double amount_owed; 
+}

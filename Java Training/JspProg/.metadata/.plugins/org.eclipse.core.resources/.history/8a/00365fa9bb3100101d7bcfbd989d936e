@@ -1,0 +1,64 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+
+<f:view>
+<html>
+<head>
+    <title>Restaurant Records</title>
+</head>
+<body>
+    <h:form>
+        <h2 style="text-align:center;">Restaurant Records</h2>
+
+        <!-- Restaurant Table -->
+        <h:dataTable value="#{restaurantController.showRestaurant()}" var="r" border="1" style="width:100%; margin-bottom:10px;">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{r.restaurantId}" id="restaurantId_#{r.restaurantId}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{r.restaurantName}" id="restaurantName_#{r.restaurantId}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">City</f:facet>
+                <h:outputText value="#{r.city}" id="city_#{r.restaurantId}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Rating</f:facet>
+                <h:outputText value="#{r.rating}" id="rating_#{r.restaurantId}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Flag</f:facet>
+                <h:outputText value="#{r.flag}" id="flag_#{r.restaurantId}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Menu</f:facet>
+                <h:commandButton value="Show Menu" action="#{restaurantController.loadMenus(r)}" id="menuButton_#{r.restaurantId}" />
+            </h:column>
+        </h:dataTable>
+
+        <!-- Menu Table -->
+        <h:panelGroup rendered="#{not empty restaurantController.selectedMenuList}">
+            <h3>Menu for Selected Restaurant</h3>
+            <h:dataTable value="#{restaurantController.selectedMenuList}" var="m" border="1" style="width:90%; margin:auto;">
+                <h:column>
+                    <f:facet name="header">Item Name</f:facet>
+                    <h:outputText value="#{m.itemName}" id="itemName_#{m.itemName}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    <h:outputText value="#{m.price}" id="price_#{m.itemName}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Rating</f:facet>
+                    <h:outputText value="#{m.rating}" id="rating_#{m.itemName}" />
+                </h:column>
+            </h:dataTable>
+        </h:panelGroup>
+
+    </h:form>
+</body>
+</html>
+</f:view>

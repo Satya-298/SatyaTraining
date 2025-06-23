@@ -1,0 +1,10 @@
+package com.java.facade.example2;
+
+public class MainProg2 {
+	
+	public static void main(String[] args) {
+		BloodTest bloodTest = new BloodTest();
+		ViralFeverPatientFacade obj = new ViralFeverPatientFacade(bloodTest);
+		obj.info();
+	}
+}

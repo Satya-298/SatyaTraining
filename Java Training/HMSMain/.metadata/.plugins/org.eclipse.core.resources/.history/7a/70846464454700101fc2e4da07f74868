@@ -1,0 +1,53 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Approve Appointments</title>
+</head>
+<body>
+    <f:view>
+        <h:form>
+
+            <h2>Pending Appointments</h2>
+
+            <h:dataTable value="#{appointmentBean.pendingAppointments}" var="appt" border="1" cellpadding="5">
+
+                <h:column>
+                    <f:facet name="header">Appointment ID</f:facet>
+                    #{appt.appointmentId}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Recipient</f:facet>
+                    #{appt.recipientName}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Date</f:facet>
+                    #{appt.availableDate}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Time</f:facet>
+                    #{appt.startTime} - #{appt.endTime}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Notes</f:facet>
+                    #{appt.notes}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Actions</f:facet>
+                    <h:commandButton value="Approve" action="#{appointmentBean.dummyAction}" />
+                    <h:commandButton value="Reject" action="#{appointmentBean.dummyAction}" />
+                </h:column>
+
+            </h:dataTable>
+
+        </h:form>
+    </f:view>
+</body>
+</html>

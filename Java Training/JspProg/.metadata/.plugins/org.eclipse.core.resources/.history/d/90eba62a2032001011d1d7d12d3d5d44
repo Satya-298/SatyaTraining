@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 04-Oct-2023, 2:50:15 pm by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.java.jsf.model.Menu" table="MENU">
+        <id name="menuId" column="MENUID">
+            <generator class="increment"/>
+        </id>
+	
+        <property name="itemName" column="ITEMNAME"/>
+        <property name="price" column="PRICE"/>
+        <property name="rating" column="RATING"/>
+
+        <many-to-one name="restaurant" class="com.java.jsf.model.Restaurant" column="RESTAURANTID" not-null="true"/>
+    </class>
+</hibernate-mapping>

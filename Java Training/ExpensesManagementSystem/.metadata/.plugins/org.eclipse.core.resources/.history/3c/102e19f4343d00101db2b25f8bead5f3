@@ -1,0 +1,16 @@
+package com.java.jsf;
+
+import javax.naming.NamingException;
+
+import com.java.ejb.Userbeans.RemoteHelperUsers;
+
+public class Dummy {
+	public static void main(String[] args) {
+		try {
+			System.out.println("Remote  " +RemoteHelperUsers.lookupRemoteStatelessUsers());
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

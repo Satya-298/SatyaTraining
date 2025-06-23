@@ -1,0 +1,7 @@
+import java.rmi.server.UnicastRemoteObject;
+
+public class CalcImpl extends UnicastRemoteObject implements Calc {
+	
+	pr CalcImpl
+
+}

@@ -1,0 +1,82 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import com.java.jsf.dao.MedicationHistoryDao;
+import com.java.jsf.model.Patient;
+
+public class MedicationHistoryController {
+
+    private MedicationHistoryDao medicationHistoryDao;
+    private MedicationHistory medicationHistory;
+    private Patient patient;
+    private List<MedicationHistory> historyList;
+    private List<String> patientTests;
+
+    // Getters and Setters
+    public MedicationHistoryDao getMedicationHistoryDao() {
+        return medicationHistoryDao;
+    }
+
+    public void setMedicationHistoryDao(MedicationHistoryDao medicationHistoryDao) {
+        this.medicationHistoryDao = medicationHistoryDao;
+    }
+
+    public MedicationHistory getMedicationHistory() {
+        return medicationHistory;
+    }
+
+    public void setMedicationHistory(MedicationHistory medicationHistory) {
+        this.medicationHistory = medicationHistory;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public List<MedicationHistory> getHistoryList() {
+        return historyList;
+    }
+
+    public void setHistoryList(List<MedicationHistory> historyList) {
+        this.historyList = historyList;
+    }
+
+    public List<String> getPatientTests() {
+        return patientTests;
+    }
+
+    public void setPatientTests(List<String> patientTests) {
+        this.patientTests = patientTests;
+    }
+
+    // Method to add medication history
+    public String addMedicationHistory() {
+        if (medicationHistory != null && patient != null) {
+            medicationHistory.setPatient(patient);
+            medicationHistoryDao.addMedicalHistory(medicationHistory);
+            medicationHistory = null; // Reset to null so it's re-injected
+        }
+        return null;
+    }
+
+    // Method to fetch all medication history for a patient
+    public String fetchPatientHistory() {
+        if (patient != null && patient.getPatientId() != null) {
+            historyList = medicationHistoryDao.showPatientMedicalHistory(patient.getPatientId());
+        }
+        return null;
+    }
+
+    // Method to fetch test names only
+    public String fetchPatientTests() {
+        if (patient != null && patient.getPatientId() != null) {
+            patientTests = medicationHistoryDao.showPatientTests(patient.getPatientId());
+        }
+        return null;
+    }
+}

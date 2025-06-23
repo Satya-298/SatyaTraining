@@ -1,0 +1,7 @@
+package com.java.ejb.dao;
+
+public interface GroupsDao {
+	
+	String addUsersDao(com.java.ejb.model.Users users
+
+}

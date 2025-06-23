@@ -1,0 +1,13 @@
+package com.java.abs1;
+
+public class MainProg {
+	
+	public static void main(String[] args) {
+		
+		String Mobile = "IPhone";
+		AbstractFactory obj = new MobileFactory();
+		Mobile res = abs1.getDetails(Mobile);
+		
+	}
+
+}

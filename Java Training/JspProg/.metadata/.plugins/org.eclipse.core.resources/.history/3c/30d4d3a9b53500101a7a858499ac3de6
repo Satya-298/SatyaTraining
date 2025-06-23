@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<f:view>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Search Doctor by ID</title>
+        <!-- Tailwind CSS CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="font-sans bg-gray-100 p-6">
+        <h:form>
+            <!-- Input field for Doctor ID -->
+            <div class="mb-4">
+                <h:outputLabel value="Enter Doctor ID: " class="text-lg font-semibold" />
+                <h:inputText value="#{doctorController.doctor.doctorId}" label="Doctor ID" 
+                             class="border p-2 rounded-md w-full" />
+            </div>
+
+            <!-- Button to trigger search by Doctor ID -->
+            <div class="mb-4">
+                <h:commandButton value="Search Doctor" action="#{doctorController.searchedDoctorById}" 
+                                 class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <!-- Home Button -->
+            <h:commandButton value="📋 Menu" action="#{doctorController.goToDashboard}" 
+                             class="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500" />
+        </h:form>
+
+        <!-- Show Doctor Details (after search) -->
+        <div class="mt-6 border border-gray-300 p-6 rounded-lg">
+            <h:panelGrid columns="2" cellpadding="5" class="space-y-2">
+                <div class="font-semibold">Doctor ID:</div>
+                <div>#{doctorController.doctor.doctorId}</div>
+
+                <div class="font-semibold">Doctor Name:</div>
+                <div>#{doctorController.doctor.doctorName}</div>
+
+                <div class="font-semibold">Specialization:</div>
+                <div>#{doctorController.doctor.specialization}</div>
+
+                <div class="font-semibold">Location:</div>
+                <div>#{doctorController.doctor.location}</div>
+
+                <div class="font-semibold">Mobile No:</div>
+                <div>#{doctorController.doctor.mobileNo}</div>
+
+                <div class="font-semibold">Status:</div>
+                <div>#{doctorController.doctor.isStatus}</div>
+            </h:panelGrid>
+        </div>
+    </body>
+    </html>
+</f:view>

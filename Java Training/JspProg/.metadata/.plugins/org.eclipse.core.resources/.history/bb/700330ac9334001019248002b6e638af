@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.java.jsf.model.MedicationHistory" table="MEDICATIONHISTORY">
+
+        <id name="medId" type="java.lang.String">
+            <column name="MEDID" />
+                        <generator class="increment" />
+        </id>
+
+        <!-- Many-to-one relationship with Patient -->
+        <many-to-one name="patient" class="com.java.jsf.model.Patient" column="PATIENTID" not-null="true"/>
+
+        <property name="medicines" type="java.lang.String">
+            <column name="MEDICINES" />
+        </property>
+
+        <property name="tests" type="java.lang.String">
+            <column name="TESTS" />
+        </property>
+
+    </class>
+
+    <!-- Named Queries -->
+    <query name="showPatientMedicalHistory">
+        from MedicationHistory m where m.patient.patientId = :patientId
+    </query>
+
+    <query name="showPatientTests">
+        select m.tests from MedicationHistory m where m.patient.patientId = :patientId
+    </query>
+
+</hibernate-mapping>

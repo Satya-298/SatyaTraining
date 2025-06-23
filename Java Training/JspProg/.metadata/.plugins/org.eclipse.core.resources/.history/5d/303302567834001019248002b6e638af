@@ -1,0 +1,77 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.jsf.model.Doctor;
+import com.java.jsf.model.Specialization;
+import com.java.jsf.util.SessionHelper;
+
+public class DoctorDaoImpl implements DoctorDao{
+
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+	public String addDoctor(Doctor doctor) {
+		sf = SessionHelper.getConnection();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+		session.save(doctor);
+		trans.commit();
+		session.close();
+		return "Doctor Record Inserted...";
+	}
+
+	@Override
+	public List<Doctor> showAllDoctors() {
+		sf = SessionHelper.getConnection();
+		session = sf.openSession();
+		Query query = session.getNamedQuery("showDoctor");
+        List<Doctor> doctors = query.list();
+        session.close();
+        return doctors;
+	}
+
+	@Override
+	public List<Doctor> showDoctorsByCategory(Specialization specialization) {
+	    sf = SessionHelper.getConnection();
+	    session = sf.openSession();
+	    Query query = session.getNamedQuery("showDoctorsByCategory");
+	    query.setParameter("specialization", specialization);
+	    List<Doctor> doctors = query.list();
+	    session.close();
+	    return doctors;
+	}
+
+
+	@Override
+	public Doctor searchDoctorById(String doctorId) {
+	    // Open a session using the SessionFactory
+	    sf = SessionHelper.getConnection();
+	    session = sf.openSession();
+	    
+	    // Get the named query from the session
+	    Query query = session.getNamedQuery("searchDoctorById");
+	    
+	    // Set the parameter for the query
+	    query.setParameter("doctorId", doctorId);
+	    
+	    // Execute the query and get the doctor object
+	    Doctor doctor = (Doctor) query.uniqueResult();
+	    
+	    // Close the session
+	    session.close();
+	    
+	    // Return the doctor object (or null if not found)
+	    return doctor;
+	}
+
+	
+	
+
+}

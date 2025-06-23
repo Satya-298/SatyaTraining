@@ -1,0 +1,68 @@
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Approve Appointment Slots</title>
+</head>
+<body>
+
+<h:form>
+
+    <h2>Pending Appointments</h2>
+
+    <!-- Feedback Messages -->
+    <h:messages globalOnly="true" layout="table" style="color:red;" />
+
+    <!-- Appointment Table -->
+    <h:dataTable value="#{appointmentBean.pendingAppointments}" var="appt" border="1" cellpadding="5">
+
+        <!-- Appointment ID -->
+        <h:column>
+            <f:facet name="header">Appointment ID</f:facet>
+            #{appt.appointmentId}
+        </h:column>
+
+        <!-- Recipient Name -->
+        <h:column>
+            <f:facet name="header">Recipient</f:facet>
+            #{appt.recipientName}
+        </h:column>
+
+        <!-- Date -->
+        <h:column>
+            <f:facet name="header">Date</f:facet>
+            #{appt.availableDate}
+        </h:column>
+
+        <!-- Time -->
+        <h:column>
+            <f:facet name="header">Time</f:facet>
+            #{appt.startTime} - #{appt.endTime}
+        </h:column>
+
+        <!-- Notes -->
+        <h:column>
+            <f:facet name="header">Notes</f:facet>
+            #{appt.notes}
+        </h:column>
+
+        <!-- Actions -->
+        <h:column>
+            <f:facet name="header">Actions</f:facet>
+
+            <!-- Approve -->
+            <h:commandButton value="Approve" 
+                             action="#{appointmentBean.approveAppointment(appt.appointmentId)}" />
+
+            <!-- Reject -->
+            <h:commandButton value="Reject" 
+                             action="#{appointmentBean.rejectAppointment(appt.appointmentId)}" />
+        </h:column>
+
+    </h:dataTable>
+
+</h:form>
+
+</body>
+</html>

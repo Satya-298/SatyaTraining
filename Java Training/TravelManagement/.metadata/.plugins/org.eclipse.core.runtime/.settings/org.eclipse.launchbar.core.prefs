@@ -1,0 +1,15 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.wst.server,WildFly\ 9.x/name=WildFly 9.x
+configDescList=org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/AddDailyExpense.jsf,org.eclipse.launchbar.core.descriptorType.default\:Dummy,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/SettlementResult.jsf,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:ExpensesProject,org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/ExpensesDashboard.jsf,org.eclipse.launchbar.core.descriptorType.default\:WildFly 9.x
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:Dummy/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Dummy/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Tomcat\ v8.5\ Server\ at\ localhost/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:WildFly\ 9.x/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:WildFly\ 9.x/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/AddDailyExpense.jsf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.wst.server\:Tomcat v8.5 Server at localhost
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:/ExpensesDashboard.jsf/activeLaunchTarget=null\:---
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:ExpensesProject/activeLaunchMode=run
+org.jboss.tools.wtp.server.launchbar.ModuleDescriptorType\:ExpensesProject/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.wst.server\:WildFly 9.x

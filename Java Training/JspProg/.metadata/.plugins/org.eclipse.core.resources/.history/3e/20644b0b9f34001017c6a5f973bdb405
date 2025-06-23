@@ -1,0 +1,66 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.jsf.model.Doctor;
+import com.java.jsf.model.Specialization;
+import com.java.jsf.util.SessionHelper;
+
+public class DoctorDaoImpl implements DoctorDao {
+
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+	public String addDoctor(Doctor doctor) {
+		sf = SessionHelper.getConnection();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+		session.save(doctor);
+		trans.commit();
+		session.close();
+		return "Doctor Record Inserted...";
+	}
+
+	@Override
+	public List<Doctor> showAllDoctors() {
+		sf = SessionHelper.getConnection();
+		session = sf.openSession();
+		Query query = session.getNamedQuery("showDoctor");
+        List<Doctor> doctors = query.list();
+        session.close();
+        return doctors;
+	}
+
+	@Override
+	public List<Doctor> showDoctorsByCategory(Specialization specialization) {
+	    sf = SessionHelper.getConnection();
+	    session = sf.openSession();
+	    Query query = session.getNamedQuery("showDoctorsByCategory");
+	    query.setParameter("specialization", specialization);
+	    List<Doctor> doctors = query.list();
+	    session.close();
+	    return doctors;
+	}
+
+
+	@Override
+	public Doctor searchDoctorById(String doctorId) {
+	    sf = SessionHelper.getConnection();
+	    session = sf.openSession();
+	    Query query = session.getNamedQuery("searchDoctorById");
+	    query.setParameter("doctorId", doctorId);
+	    Doctor doctor = (Doctor) query.uniqueResult();
+	    session.close();
+	    return doctor;
+	}
+
+	
+	
+
+}

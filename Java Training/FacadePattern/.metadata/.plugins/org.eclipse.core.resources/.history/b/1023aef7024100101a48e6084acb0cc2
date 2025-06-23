@@ -1,0 +1,8 @@
+package com.java.facade.example2;
+
+public class PregnantFacade {
+	
+	private BloodTest bloodTest;
+	private 
+
+}

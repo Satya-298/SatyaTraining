@@ -1,0 +1,65 @@
+package com.java.ims.model;
+
+public class InsurancePlanDetails {
+	
+	private int planDetailId;
+    private InsurancePlan plan; 
+    private double premiumAmount;
+    private double coverageAmount;
+    private String description;
+    private String status = "ACTIVE";
+	public int getPlanDetailId() {
+		return planDetailId;
+	}
+	public void setPlanDetailId(int planDetailId) {
+		this.planDetailId = planDetailId;
+	}
+	public InsurancePlan getPlan() {
+		return plan;
+	}
+	public void setPlan(InsurancePlan plan) {
+		this.plan = plan;
+	}
+	public double getPremiumAmount() {
+		return premiumAmount;
+	}
+	public void setPremiumAmount(double premiumAmount) {
+		this.premiumAmount = premiumAmount;
+	}
+	public double getCoverageAmount() {
+		return coverageAmount;
+	}
+	public void setCoverageAmount(double coverageAmount) {
+		this.coverageAmount = coverageAmount;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public InsurancePlanDetails(int planDetailId, InsurancePlan plan, double premiumAmount, double coverageAmount,
+			String description, String status) {
+		super();
+		this.planDetailId = planDetailId;
+		this.plan = plan;
+		this.premiumAmount = premiumAmount;
+		this.coverageAmount = coverageAmount;
+		this.description = description;
+		this.status = status;
+	}
+	public InsurancePlanDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
+    
+
+}

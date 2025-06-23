@@ -1,0 +1,8 @@
+package com.java.facade.example2;
+
+public class MainProg3 {
+	
+	BloodTest obj = new BloodTest();
+	DopplerTest 
+
+}

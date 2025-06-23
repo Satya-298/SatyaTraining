@@ -1,0 +1,106 @@
+package com.java.jsf.model;
+
+import java.sql.Timestamp;
+import java.util.Date;
+
+public class Asset {
+
+    private int assetId;
+    private String assetName;
+    private String assetTag;
+    private String category;
+    private int quantity;
+    private Employee assignedTo;   
+    private Timestamp assignedDate;
+    private String status;
+
+    // Getters and Setters
+
+    public int getAssetId() {
+        return assetId;
+    }
+
+    public void setAssetId(int assetId) {
+        this.assetId = assetId;
+    }
+
+    public String getAssetName() {
+        return assetName;
+    }
+
+    public void setAssetName(String assetName) {
+        this.assetName = assetName;
+    }
+
+    public String getAssetTag() {
+        return assetTag;
+    }
+
+    public void setAssetTag(String assetTag) {
+        this.assetTag = assetTag;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Employee getAssignedTo() {
+        return assignedTo;
+    }
+
+    public void setAssignedTo(Employee assignedTo) {
+        this.assignedTo = assignedTo;
+    }
+
+	public Timestamp getAssignedDate() {
+		return assignedDate;
+	}
+
+	public void setAssignedDate(Timestamp assignedDate) {
+		this.assignedDate = assignedDate;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	
+
+	public Asset(int assetId, String assetName, String assetTag, String category, int quantity, Employee assignedTo,
+			Timestamp assignedDate, String status) {
+		super();
+		this.assetId = assetId;
+		this.assetName = assetName;
+		this.assetTag = assetTag;
+		this.category = category;
+		this.quantity = quantity;
+		this.assignedTo = assignedTo;
+		this.assignedDate = assignedDate;
+		this.status = status;
+	}
+
+	public Asset() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+    
+    
+}

@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<f:view>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Doctors by Category</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+            }
+
+            th, td {
+                padding: 10px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #f2f2f2;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h:form>
+            <!-- Dropdown for selecting specialization -->
+            <h:outputLabel value="Select Specialization: " />
+            <h:selectOneMenu value="#{doctorController.selectedspecialization}" label="Specialization">
+                <f:selectItem itemLabel="HEART" itemValue="HEART" />
+                <f:selectItem itemLabel="SKIN" itemValue="SKIN" />
+                <f:selectItem itemLabel="GENERAL" itemValue="GENERAL" />
+                <f:selectItem itemLabel="KIDNEY" itemValue="KIDNEY" />
+            </h:selectOneMenu> 
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <!-- Button to show doctors based on selected specialization -->
+            <h:commandButton value="Show Doctors" action="#{doctorController.searchByCategory()}" />
+			
+				&nbsp;&nbsp;&nbsp;&nbsp;
+
+       		<!-- Home Button -->
+			<h:commandButton value="Home" action="#{doctorController.goToDashboard}" /><br/><br/>
+			
+        </h:form>
+
+        <h:dataTable value="#{doctorController.filteredDoctors}" var="d">
+            <h:column>
+    		<f:facet name="header">
+        	<h:outputLabel value="Doctor ID" />
+   		 	</f:facet>
+    		<h:outputText value="#{d.doctorId}" />
+		</h:column>
+
+		<h:column>
+    		<f:facet name="header">
+        	<h:outputLabel value="Doctor Name" />
+    		</f:facet>
+    		<h:outputText value="#{d.doctorName}" />
+		</h:column>
+
+		<h:column>
+    		<f:facet name="header">
+        	<h:outputLabel value="Specialization" />
+    		</f:facet>
+    		<h:outputText value="#{d.specialization}" />
+		</h:column>
+
+		<h:column>
+    		<f:facet name="header">
+        	<h:outputLabel value="Location" />
+    		</f:facet>
+    		<h:outputText value="#{d.location}" />
+		</h:column>
+
+		<h:column>
+    		<f:facet name="header">
+        	<h:outputLabel value="Mobile No" />
+    		</f:facet>
+    	<h:outputText value="#{d.mobileNo}" />
+		</h:column>
+
+		<h:column>
+    		<f:facet name="header">
+        	<h:outputLabel value="Status" />
+    		</f:facet>
+    		<h:outputText value="#{d.isStatus}" />
+		</h:column>		
+		
+        </h:dataTable>
+
+    </body>
+    </html>
+</f:view>

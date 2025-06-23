@@ -1,0 +1,112 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+import com.java.jsf.dao.MedicationHistoryDao;
+import com.java.jsf.model.MedicationHistory;
+import com.java.jsf.model.Patient;
+
+public class MedicationHistoryController {
+
+    private MedicationHistoryDao medicationHistoryDao; 
+    private MedicationHistory medicationHistory;
+    private List<MedicationHistory> medicalHistoryList;
+    private Patient patient= new Patient();
+    private String message;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    
+    private List<String> patientTests;
+
+    public List<String> getPatientTests() {
+        return patientTests;
+    }
+
+    public void setPatientTests(List<String> patientTests) {
+        this.patientTests = patientTests;
+    }
+
+    
+    public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public MedicationHistoryDao getMedicationHistoryDao() {
+        return medicationHistoryDao;
+    }
+
+    public void setMedicationHistoryDao(MedicationHistoryDao medicationHistoryDao) {
+        this.medicationHistoryDao = medicationHistoryDao;
+    }
+
+    public MedicationHistory getMedicationHistory() {
+    	if (medicationHistory == null) {
+            medicationHistory = new MedicationHistory();
+        }
+        if (medicationHistory.getPatient() == null) {
+            medicationHistory.setPatient(new Patient());
+        }
+        return medicationHistory;
+    }
+
+    public void setMedicationHistory(MedicationHistory medicationHistory) {
+        this.medicationHistory = medicationHistory;
+    }
+
+    public List<MedicationHistory> getMedicalHistoryList() {
+        return medicalHistoryList;
+    }
+
+    public void setMedicalHistoryList(List<MedicationHistory> medicalHistoryList) {
+        this.medicalHistoryList = medicalHistoryList;
+    }
+
+    
+    public String addMedicalHistory() {
+        medicationHistory.setPatient(patient);  // Linking patient to medicationHistory
+
+        // Call DAO to save the medical history
+        String result = medicationHistoryDao.addMedicalHistory(medicationHistory);
+
+        // Show success or failure message based on the result
+        if (result != null && result.contains("Successfully")) {
+            message = "Medication history added successfully.";
+            FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
+        } else {
+            message = "Failed to add medication history.";
+            FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
+        }
+
+        return null;  // Stay on the same page after form submission
+    }
+
+    public void clearMessage() {
+        this.message = null;
+    }
+    
+    public String loadPatientMedicalHistory() {
+        medicalHistoryList = medicationHistoryDao.showPatientMedicalHistory(patient.getPatientId());
+        return null;
+    }
+
+    public String loadPatientTests() {
+        this.patientTests = medicationHistoryDao.showPatientTests(patient.getPatientId());
+        return null;
+    }
+}

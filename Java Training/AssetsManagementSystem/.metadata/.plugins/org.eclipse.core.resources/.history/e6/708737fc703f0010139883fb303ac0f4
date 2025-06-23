@@ -1,0 +1,9 @@
+package com.java.jsf.dao;
+
+public interface AdminDao {
+	
+    void addAdmin(Admin admin);
+
+    Admin loginAdmin(String email, String password);
+
+}

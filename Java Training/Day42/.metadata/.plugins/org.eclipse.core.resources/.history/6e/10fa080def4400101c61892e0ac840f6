@@ -1,0 +1,9 @@
+package com.java.ims.util;
+
+import org.hibernate.SessionFactory;
+
+public class SessionHelper {
+	
+	public static SessionFactory 
+
+}

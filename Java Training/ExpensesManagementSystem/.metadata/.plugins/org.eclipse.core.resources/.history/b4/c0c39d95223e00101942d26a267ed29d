@@ -1,0 +1,126 @@
+package com.java.ejb.beans;
+
+import java.sql.SQLException;
+import java.util.regex.Pattern;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.naming.NamingException;
+
+import com.java.ejb.model.Groups;
+import com.java.ejb.model.Users;
+
+public class GroupsEjbImpl {
+	
+	static GroupsJdbcBeanRemote remote;
+	static {
+		try {
+			remote = RemoteHelperGroups.lookupRemoteStatelessGroups();
+			System.out.println("S Remove  " +remote);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public String addGroupsValid(Groups groups) throws ClassNotFoundException, SQLException {
+        System.out.println("Groups: " + groups);
+        System.out.println("Remote is " + remote);
+        
+     
+
+        boolean isValid = true;
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        // Get logged-in admin from session
+        Users loggedInAdmin = (Users) context.getExternalContext().getSessionMap().get("loggedInAdmin");
+        if (loggedInAdmin == null) {
+            // Admin not logged in — redirect to login page
+            return "AdminLogin.jsp?faces-redirect=true";
+        }
+
+        groups.setAdmin(loggedInAdmin);
+        
+        if (groups.getName() == null || groups.getName().length() < 3 || groups.getName().length() > 50) {
+            context.addMessage("groupName", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Group Name Invalid", "Group name must be between 3 and 50 characters."));
+            context.validationFailed();
+            isValid = false;
+        }
+
+        if (groups.getAdvance() < 0) {
+            context.addMessage("advance", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Invalid Advance", "Advance must be a non-negative value."));
+            context.validationFailed();
+            isValid = false;
+        }
+
+        if (!isValid) {
+            return null;
+        }
+
+        remote.addGroups(groups);
+        return "GroupsDashboard?faces-redirect=true";
+    }
+	
+	public Users validateAdminLogin(Users admin) throws ClassNotFoundException, SQLException {
+	    FacesContext context = FacesContext.getCurrentInstance();
+	    boolean isValid = true;
+
+	    String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+	    String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&+=!]).{6,}$";
+
+	    if (admin == null) {
+	        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+	                "Admin details missing", "Admin login credentials must be provided."));
+	        context.validationFailed();
+	        return null;
+	    }
+
+	    if (admin.getEmail() == null || !Pattern.matches(emailRegex, admin.getEmail())) {
+	        context.addMessage("adminEmail", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+	                "Invalid Email", "Please enter a valid email address."));
+	        context.validationFailed();
+	        isValid = false;
+	    }
+
+	    if (admin.getPassword() == null || !Pattern.matches(passwordRegex, admin.getPassword())) {
+	        context.addMessage("adminPassword", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+	                "Weak Password", "Password must be at least 6 characters long, with uppercase, lowercase, digit and special char."));
+	        context.validationFailed();
+	        isValid = false;
+	    }
+
+	    if (!isValid) {
+	        return null;
+	    }
+
+	    Users loggedInAdmin = remote.loginAdmin(admin);
+	    if (loggedInAdmin == null) {
+	        context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+	                "Login Failed", "Invalid admin email or password."));
+	        context.validationFailed();
+	        return null;
+	    }
+
+	    return loggedInAdmin;
+	}
+	
+	public String adminLogin(Users admin) throws SQLException, ClassNotFoundException {
+	    FacesContext context = FacesContext.getCurrentInstance();
+	    Users loggedInAdmin = validateAdminLogin(admin);
+	    if (loggedInAdmin == null) {
+	        // validation errors or login failed messages already added in validateAdminLogin
+	        return null;
+	    }
+	    // Store admin in session
+	    context.getExternalContext().getSessionMap().put("loggedInAdmin", loggedInAdmin);
+	    
+	    // Redirect to add group page
+	    return "AddGroupsValid.jsp?faces-redirect=true";
+	}
+
+
+	
+}

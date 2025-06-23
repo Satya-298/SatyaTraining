@@ -1,0 +1,8 @@
+package com.java.facade.example1;
+
+public class DopplerTest {
+
+	public void info() {
+		System.out.println("Doppler Test Reading to be done for Women...");
+	}
+}

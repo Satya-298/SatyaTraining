@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Java Training\AssetsManagementSystem\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2629512804.index
+2815310682.index
+946057784.index
+2344714927.index
+1434950398.index
+1772890683.index

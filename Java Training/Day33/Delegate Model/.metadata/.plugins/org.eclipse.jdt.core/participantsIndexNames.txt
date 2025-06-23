@@ -1,0 +1,7 @@
+INDEX VERSION 1.134
+C:\Java Training\Day33\Delegate Model\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2607204380.index
+\JsfEjbClient\src\main\java
+C:\Java Training\Day33\Delegate Model\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2471426611.index
+\HibJsf\src\main\java
+C:\Java Training\Day33\Delegate Model\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3081338553.index
+\EjbEntityClient\src\main\java

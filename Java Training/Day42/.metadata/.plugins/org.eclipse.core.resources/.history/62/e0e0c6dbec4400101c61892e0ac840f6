@@ -1,0 +1,92 @@
+package com.java.ims.model;
+
+public class InsurancePlan {
+	
+	private int planId;
+    private InsuranceCompany company; 
+    private String planName;
+    private double startPremium;
+    private String description;
+    private int maxAge;
+    private int minAge;
+    private double waingPeriod;
+    private String ped;
+    private String status = "ACTIVE";
+	public int getPlanId() {
+		return planId;
+	}
+	public void setPlanId(int planId) {
+		this.planId = planId;
+	}
+	public InsuranceCompany getCompany() {
+		return company;
+	}
+	public void setCompany(InsuranceCompany company) {
+		this.company = company;
+	}
+	public String getPlanName() {
+		return planName;
+	}
+	public void setPlanName(String planName) {
+		this.planName = planName;
+	}
+	public double getStartPremium() {
+		return startPremium;
+	}
+	public void setStartPremium(double startPremium) {
+		this.startPremium = startPremium;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public int getMaxAge() {
+		return maxAge;
+	}
+	public void setMaxAge(int maxAge) {
+		this.maxAge = maxAge;
+	}
+	public int getMinAge() {
+		return minAge;
+	}
+	public void setMinAge(int minAge) {
+		this.minAge = minAge;
+	}
+	public double getWaingPeriod() {
+		return waingPeriod;
+	}
+	public void setWaingPeriod(double waingPeriod) {
+		this.waingPeriod = waingPeriod;
+	}
+	public String getPed() {
+		return ped;
+	}
+	public void setPed(String ped) {
+		this.ped = ped;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public InsurancePlan(int planId, InsuranceCompany company, String planName, double startPremium, String description,
+			int maxAge, int minAge, double waingPeriod, String ped, String status) {
+		super();
+		this.planId = planId;
+		this.company = company;
+		this.planName = planName;
+		this.startPremium = startPremium;
+		this.description = description;
+		this.maxAge = maxAge;
+		this.minAge = minAge;
+		this.waingPeriod = waingPeriod;
+		this.ped = ped;
+		this.status = status;
+	}
+    
+    
+
+}

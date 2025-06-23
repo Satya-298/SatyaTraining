@@ -1,0 +1,16 @@
+package com.java.jsf.model;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Set;
+
+
+}
+
+//CREATE TABLE users (
+//	    id INT AUTO_INCREMENT PRIMARY KEY,
+//	    name VARCHAR(100) NOT NULL,
+//	    email VARCHAR(100) NOT NULL UNIQUE,
+//	    password VARCHAR (30) NOT NULL,
+//	    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//	);

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.insurance.model.InsurancePlan" table="insuranceplan">
+        <id name="planId" column="planId" type="int">
+            <generator class="identity"/>
+        </id>
+
+        <many-to-one name="company" class="com.java.insurance.model.InsuranceCompany" column="companyId" not-null="true"/>
+
+        <property name="planName" column="planName"/>
+        <property name="startPremium" column="startPremium"/>
+        <property name="description" column="Description"/>
+        <property name="maxAge" column="maxAge"/>
+        <property name="minAge" column="minAge"/>
+        <property name="waingPeriod" column="waingPeriod"/>
+        <property name="ped" column="Ped"/>
+        <property name="status" column="status"/>
+    </class>
+</hibernate-mapping>

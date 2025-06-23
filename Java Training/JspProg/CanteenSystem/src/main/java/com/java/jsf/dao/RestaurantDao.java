@@ -1,0 +1,16 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import com.java.jsf.model.Restaurant;
+
+public interface RestaurantDao {
+	
+	List<Restaurant> showRestaurantDao();
+
+	List<Restaurant> restaurantListByType(String flag);
+
+	List<String> getFoodType();
+	
+
+}

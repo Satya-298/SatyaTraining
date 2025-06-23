@@ -1,0 +1,46 @@
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+<f:view>
+<html>
+<head>
+    <title>Add Doctor</title>
+</head>
+<body>
+    <h:form>
+        <h:panelGrid columns="2">
+
+            <h:outputLabel value="Doctor ID:" />
+            <h:inputText value="#{doctorController.doctor.doctorId}" />
+
+            <h:outputLabel value="Doctor Name:" />
+            <h:inputText value="#{doctorController.doctor.doctorName}" />
+
+            <h:outputLabel value="Specialization:" />
+            <h:selectOneMenu value="#{doctorController.doctor.specialization}">
+                <f:selectItem itemLabel="Select" itemValue="" />
+                <f:selectItem itemLabel="HEART" itemValue="HEART" />
+                <f:selectItem itemLabel="SKIN" itemValue="SKIN" />
+                <f:selectItem itemLabel="GENERAL" itemValue="GENERAL" />
+                <f:selectItem itemLabel="KIDNEY" itemValue="KIDNEY" />
+            </h:selectOneMenu>
+
+            <h:outputLabel value="Location:" />
+            <h:inputText value="#{doctorController.doctor.location}" />
+
+            <h:outputLabel value="Mobile No:" />
+            <h:inputText value="#{doctorController.doctor.mobileNo}" />
+
+            <h:outputLabel value="Status:" />
+            <h:selectOneMenu value="#{doctorController.doctor.isStatus}">
+                <f:selectItem itemLabel="Select" itemValue="" />
+                <f:selectItem itemLabel="ACTIVE" itemValue="ACTIVE" />
+                <f:selectItem itemLabel="INACTIVE" itemValue="INACTIVE" />
+            </h:selectOneMenu>
+
+        </h:panelGrid>
+
+        <h:commandButton value="Add Doctor" action="#{doctorController.addDoctor}" />
+    </h:form>
+</body>
+</html>
+</f:view>

@@ -1,0 +1,99 @@
+package com.java.hms.model;
+
+import java.util.Date;
+import java.sql.Timestamp;
+
+public class MedicalHistory {
+
+    private String procedureId;
+    private int appointmentId;
+    private String providerId;
+    private String recipientId;
+    private Date procedureDate;
+    private String diagnosis;
+    private String recommendations;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
+
+    private Appointment appointment;
+    private Provider provider;
+    private Recipient recipient;
+    
+    public String getProcedureId() {
+        return procedureId;
+    }
+    public void setProcedureId(String procedureId) {
+        this.procedureId = procedureId;
+    }
+    public int getAppointmentId() {
+		return appointmentId;
+	}
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+	public String getProviderId() {
+        return providerId;
+    }
+    public void setProviderId(String providerId) {
+        this.providerId = providerId;
+    }
+
+    public String getRecipientId() {
+        return recipientId;
+    }
+    public void setRecipientId(String recipientId) {
+        this.recipientId = recipientId;
+    }
+
+    public Date getProcedureDate() {
+        return procedureDate;
+    }
+    public void setProcedureDate(Date procedureDate) {
+        this.procedureDate = procedureDate;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public String getRecommendations() {
+        return recommendations;
+    }
+    public void setRecommendations(String recommendations) {
+        this.recommendations = recommendations;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    public MedicalHistory(String procedureId, int appointmentId, String providerId, String recipientId,
+			Date procedureDate, String diagnosis, String recommendations, Timestamp createdAt, Timestamp updatedAt) {
+		this.procedureId = procedureId;
+		this.appointmentId = appointmentId;
+		this.providerId = providerId;
+		this.recipientId = recipientId;
+		this.procedureDate = procedureDate;
+		this.diagnosis = diagnosis;
+		this.recommendations = recommendations;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+    
+	public MedicalHistory() {
+        super();
+    }
+}

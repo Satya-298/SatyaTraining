@@ -1,0 +1,11 @@
+package com.java.jsf.model;
+
+public class Restaurant {
+	
+	private int restaurantId;
+	private String restaurantName;
+	private String city;
+	private double rating;
+	private Flag flag;
+
+}

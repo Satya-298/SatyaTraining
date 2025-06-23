@@ -1,0 +1,14 @@
+package com.java.ejb.beans;
+
+import java.sql.SQLException;
+
+import javax.ejb.Remote;
+
+import com.java.ejb.model.Expenses;
+
+@Remote
+public interface ExpensesJdbcBeanRemote {
+	
+	Expenses addExpense(Expenses expense) throws ClassNotFoundException, SQLExceptio
+
+}

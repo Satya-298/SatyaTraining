@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+
+<f:view>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Patient Dashboard</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 30px;
+                background-color: #f0f0f0;
+            }
+
+            .dashboard {
+                width: 400px;
+                margin: auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .button-panel {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .button-panel h:commandButton {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="dashboard">
+            <h2>Patient Dashboard</h2>
+            <h:form>
+                <div class="button-panel">
+                    <h:commandButton value="Search Patient by ID" action="ShowPatientById" />
+                    <h:commandButton value="View Patients by Doctor ID" action="ShowPatientByDoctorId" />
+                    <h:commandButton value="Back to Doctor Dashboard" action="DoctorDashboard" />
+                    <h:commandButton value="Back to Home" action="Home" />
+                </div>
+            </h:form>
+        </div>
+    </body>
+    </html>
+</f:view>
+
+AddMedicationHistory.jsp,

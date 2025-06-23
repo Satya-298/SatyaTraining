@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.java.ejb&apos; to &apos;EmployEjbJdbc/ejbModule/com.java.ejb&apos;&#x0D;&#x0A;- Original project: &apos;EmployEjbJdbc2&apos;&#x0D;&#x0A;- Destination element: &apos;EmployEjbJdbc/ejbModule/com.java.ejb&apos;&#x0D;&#x0A;- Original element: &apos;EmployEjbJdbc2/ejbModule/com.java.ejb&apos;" description="Copy package" destination="=EmployEjbJdbc/ejbModule&lt;com.java.ejb" element1="/ejbModule&lt;com.java.ejb" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1747994243978" version="1.0"/>
+</session>

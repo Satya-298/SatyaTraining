@@ -1,0 +1,58 @@
+package com.java.hms.dao;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.hms.model.Provider;
+import com.java.hms.util.SessionHelper;
+
+public class ProviderDaoImpl implements ProviderDao {
+	
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+    public String addProvider(Provider provider) {
+		System.out.println("IN DAO IMPL ADD START");
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+
+	    String latestId = getLatestProviderId();  
+	    String newId = generateProviderId(latestId);  
+
+	    provider.setProviderId(newId);
+	    session.save(provider);
+
+	    trans.commit();
+	    session.close();
+		System.out.println("IN DAO IMPL END");
+
+	    return "Provider added successfully with ID: " + newId;
+	    
+	}
+	
+	public String getLatestProviderId() {
+		System.out.println("inside latest id");
+        sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Query query = session.createQuery("SELECT MAX(p.providerId) FROM Provider p");
+        String latestId = (String) query.uniqueResult();
+        System.out.println("latest id end");
+        return latestId;
+    }
+
+    public String generateProviderId(String latestId) {
+    	System.out.println("inside generate id");
+        if (latestId == null) {
+            return "P001";
+        } else {
+            int id = Integer.parseInt(latestId.substring(1));
+            id++;
+            return "P" + String.format("%03d", id);
+        }
+    }
+
+}

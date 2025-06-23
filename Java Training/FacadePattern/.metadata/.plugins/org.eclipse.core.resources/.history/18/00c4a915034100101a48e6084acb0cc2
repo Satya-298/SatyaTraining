@@ -1,0 +1,19 @@
+package com.java.facade.example2;
+
+public class PregnantFacade {
+	
+	private BloodTest bloodTest;
+	private DopplerTest dopplerTest;
+	private BetaHcg betaHcgTest;
+	
+	public PregnantFacade(BloodTest bloodTest, DopplerTest dopplerTest, BetaHcg betaHcgTest) {
+		this.bloodTest = bloodTest;
+		this.dopplerTest = dopplerTest;
+		this.betaHcgTest = betaHcgTest;
+	}
+	
+	public void info() {
+		
+	}
+
+}

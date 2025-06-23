@@ -1,0 +1,12 @@
+package com.java.ejb.beans;
+
+import java.sql.SQLException;
+
+import javax.ejb.Remote;
+
+
+@Remote
+public interface UsersJdbcBeanRemote {
+	
+	String addUsers(Users users) throws ClassNotFoundException, SQLException;
+}

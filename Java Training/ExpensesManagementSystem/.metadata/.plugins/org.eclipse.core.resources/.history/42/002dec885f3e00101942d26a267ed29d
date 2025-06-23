@@ -1,0 +1,100 @@
+package com.java.ejb.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.java.ejb.model.Groups;
+import com.java.ejb.model.Users;
+import com.java.ejb.util.ConnectionHelper;
+
+public class GroupsDaoImpl implements GroupsDao {
+
+    @Override
+    public String addGroupsDao(Groups groups) throws ClassNotFoundException, SQLException {
+        Connection conn = ConnectionHelper.getConnection();
+
+        // DEBUG: Set auto-commit false for manual control
+        conn.setAutoCommit(false);
+
+        Users inputUser = groups.getAdmin();
+        Users admin = loginAdmin(inputUser);
+
+        // DEBUG: Check if admin was found
+        if (admin == null) {
+            System.out.println("Admin login failed: user not found for email=" + inputUser.getEmail());
+            throw new SQLException("Admin login failed: user not found.");
+        }
+
+        // DEBUG: Print resolved admin ID
+        System.out.println("Resolved Admin ID: " + admin.getId());
+
+        String cmd = "INSERT INTO group_s(name, advance, adminId) VALUES (?, ?, ?)";
+        PreparedStatement pst = conn.prepareStatement(cmd);
+
+        pst.setString(1, groups.getName());
+        pst.setDouble(2, groups.getAdvance());
+        pst.setInt(3, admin.getId());
+
+        // ❌ Original buggy logic (double execution)
+        // pst.executeUpdate();
+        // int rows = pst.executeUpdate();
+
+        // ✅ Corrected: Execute only once
+        int rows = pst.executeUpdate();
+        System.out.println("Rows inserted: " + rows);  // Should be 1
+
+        conn.commit();
+
+        // DEBUG: Print all groups in the table for verification
+        System.out.println("Current groups in DB:");
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery("SELECT * FROM group_s");
+        while (rs.next()) {
+            System.out.println("Group ID: " + rs.getInt("id") +
+                               ", Name: " + rs.getString("name") +
+                               ", Admin ID: " + rs.getInt("adminId") +
+                               ", Advance: " + rs.getDouble("advance"));
+        }
+
+        // Always close resources
+        pst.close();
+        st.close();
+        conn.close();
+
+        return "Group Added";
+    }
+
+    @Override
+    public Users loginAdmin(Users users) throws ClassNotFoundException, SQLException {
+        Connection conn = ConnectionHelper.getConnection();
+        String cmd = "SELECT * FROM users WHERE email = ? AND password = ?";
+        PreparedStatement pst = conn.prepareStatement(cmd);
+        pst.setString(1, users.getEmail());
+        pst.setString(2, users.getPassword());
+
+        ResultSet rs = pst.executeQuery();
+        Users admin = null;
+
+        if (rs.next()) {
+            admin = new Users();
+            admin.setId(rs.getInt("id"));
+            admin.setName(rs.getString("name"));
+            admin.setEmail(rs.getString("email"));
+            admin.setPassword(rs.getString("password")); 
+        }
+
+        // DEBUG: If admin not found, print the login attempt info
+        if (admin == null) {
+            System.out.println("loginAdmin(): No matching user for email: " + users.getEmail());
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+        return admin;
+    }
+}

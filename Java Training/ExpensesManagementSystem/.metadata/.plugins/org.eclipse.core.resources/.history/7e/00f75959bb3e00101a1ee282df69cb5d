@@ -1,0 +1,20 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import com.java.jsf.model.GroupMembers;
+
+public class MembersDaoImpl implements MembersDao {
+
+	
+	
+	
+	@Override
+	public List<GroupMembers> showMemebersDao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}

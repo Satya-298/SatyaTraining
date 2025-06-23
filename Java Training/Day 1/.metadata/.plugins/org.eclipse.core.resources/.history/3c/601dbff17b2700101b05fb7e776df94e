@@ -1,0 +1,29 @@
+package com.java.jdbc.dao;
+
+public interface ICrimeAnalysisService {
+	
+	
+
+}
+
+
+//// Create a new incident
+//createIncident();
+//parameters- Incident object
+//return type Boolean
+//// Update the status of an incident
+//updateIncidentStatus();
+//parameters- Status object,incidentid
+//return type Boolean
+//// Get a list of incidents within a date range
+//getIncidentsInDateRange();
+//parameters- startDate, endDate
+//return type Collection of Incident objects
+//// Search for incidents based on various criteria
+//searchIncidents(IncidentType criteria);
+//parameters- IncidentType object
+//return type Collection of Incident objects
+//// Generate incident reports
+//generateIncidentReport();
+//parameters- Incident object
+//return type Report objec

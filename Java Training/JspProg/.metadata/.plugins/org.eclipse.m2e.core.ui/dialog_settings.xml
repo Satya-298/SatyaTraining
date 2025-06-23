@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Java Training\JspProg\RestaurantSystem\src\main\webapp\ShowRestaurant.jsp"/>
+			<item value="C:\Java Training\JspProg\HibJsf\src\main\webapp\Menu.jsp"/>
+			<item value="C:\Java Training\JspProg\HibJsf\src\main\webapp\EmployShow.jsp"/>
+			<item value="C:\Java Training\JspProg\JsfTest\src\main\webapp\success.jsp"/>
+			<item value="C:\Java Training\JspProg\JsfExamples"/>
+			<item value="C:\Java Training\JspProg\HibOneToMany\src\main\java\com\java\hib\MainProg.java"/>
+			<item value="C:\Java Training\JspProg\ComplaintSystemHibProject\src\main\java\com\jav\hib\dao\ResolveDaoImpl.java"/>
+			<item value="C:\Java Training\JspProg\HibNameQueries\src\main\java\com\java\hib"/>
+			<item value="C:\Java Training\JspProg\ComplaintSystemHibJstlProject\src\main\webapp\ComplaintShow.jsp"/>
+			<item value="C:\Users\satyaprakashm\Downloads\Leave-Management-System-main\Leave-Management-System-main\LeaveManagementSystem\src\main\java\com\java\lms\dao\EmployDao.java"/>
+			<item value="C:\Users\satyaprakashm\Downloads\Day17\Day17\JspJdbc\resources\db.properties"/>
+			<item value="C:\Users\satyaprakashm\Downloads\Day17\Day17\JspJdbc"/>
+			<item value="C:\Users\satyaprakashm\Downloads\Day17\Day17\JspJdbc\src\main\webapp\EmployShow.jsp"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+			<item value="com.java.jsf"/>
+			<item value="com.java.hib"/>
+			<item value="com.java.cs"/>
+			<item value="com.java.lms"/>
+			<item value="com.java.jstl"/>
+			<item value="com.java.lib"/>
+			<item value="Infinite.ExamAgentProject"/>
+			<item value="com.jav.beans"/>
+		</list>
+		<list key="groupId">
+			<item value="Infinite"/>
+		</list>
+		<list key="artifactId">
+			<item value="HospitalManagementSystem"/>
+			<item value="CanteenSystem"/>
+			<item value="RestaurantSystem"/>
+			<item value="JsfValidations"/>
+			<item value="HibJsf"/>
+			<item value="JsfTest"/>
+			<item value="JsfExamples"/>
+			<item value="HibOneToMany"/>
+			<item value="HibOneToOneEx"/>
+			<item value="HibMailOtpExample"/>
+			<item value="ComplaintSystemHibProject"/>
+			<item value="HibNameQueries"/>
+			<item value="ComplaintSystemHibJstlProject"/>
+			<item value="HibCrEx"/>
+			<item value="EmployHibJstlSqlProject"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

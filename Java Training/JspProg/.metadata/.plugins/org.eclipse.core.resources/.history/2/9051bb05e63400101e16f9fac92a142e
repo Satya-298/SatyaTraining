@@ -1,0 +1,73 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import com.java.jsf.dao.PatientDao;
+import com.java.jsf.model.Doctor;
+import com.java.jsf.model.Patient;
+
+public class PatientController {
+
+    private PatientDao patientDao;
+    private Patient patient;
+    private Doctor doctor;
+    private List<Patient> patientsByDoctor;
+
+    public PatientDao getPatientDao() {
+        return patientDao;
+    }
+
+    public void setPatientDao(PatientDao patientDao) {
+        this.patientDao = patientDao;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public List<Patient> getPatientsByDoctor() {
+        return patientsByDoctor;
+    }
+
+    public void setPatientsByDoctor(List<Patient> patientsByDoctor) {
+        this.patientsByDoctor = patientsByDoctor;
+    }
+
+    public PatientController() {
+
+    }
+
+    
+    public String searchPatientById() {
+        if (patient != null && patient.getPatientId() != null) {
+            Patient result = patientDao.showPatientById(patient.getPatientId());
+            if (result != null) {
+                this.patient = result;
+            }
+        }
+        return null; // Stay on the same page
+    }
+
+    /**
+     * Method to fetch all patients for a given doctor.
+     * The doctor ID must be set beforehand.
+     */
+    public String searchPatientsByDoctorId() {
+        if (doctor != null && doctor.getDoctorId() != null) {
+            patientsByDoctor = patientDao.showPatientsByDoctorId(doctor.getDoctorId());
+        }
+        return null; // Stay on the same page
+    }
+}

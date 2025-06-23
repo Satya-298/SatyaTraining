@@ -1,0 +1,5 @@
+package com.java.ejb.util;
+
+public class EncryptPassword {
+
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.hib.model.Resolve" table="RESOLVE">
+
+        <id name="resolveId" type="java.lang.String">
+            <column name="RESOLVEID" />
+            <generator class="assigned" />
+        </id>
+
+        <property name="complaintId" type="java.lang.String">
+            <column name="COMPLAINTID" />
+        </property>
+
+        <property name="complaintDate" type="timestamp">
+            <column name="COMPLAINTDATE" />
+        </property>
+
+        <property name="resolveDate" type="timestamp">
+            <column name="RESOLVEDATE" />
+        </property>
+
+        <property name="resolvedBy" type="java.lang.String">
+            <column name="RESOLVEDBY" />
+        </property>
+
+        <property name="comments" type="java.lang.String">
+            <column name="COMMENTS" />
+        </property>
+
+    </class>
+</hibernate-mapping>

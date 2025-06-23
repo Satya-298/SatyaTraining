@@ -1,0 +1,47 @@
+package com.java.ejb.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.List;
+
+import com.java.ejb.model.Users;
+
+public class UsersDaoImpl implements UsersDao{
+
+	Connection conn;
+	PreparedStatement pst;
+	
+	@Override
+	public List<Users> showUsersDao() {
+		conn = ConnectionHelper.getConnection();
+		session = sf.openSession();
+		Query query = session.getNamedQuery("showUsers");
+		List<Users> list = query.list();
+		
+		return list;
+	}
+
+	@Override
+	public String addUsersDao(Users users) {
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+		session.save(users);
+		trans.commit();
+		return "User Added Successfully";
+	}
+
+	@Override
+	public String deleteUsersDao(int id) {
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+		Query query = session.getNamedQuery("deleteId");
+		query.setParameter("id", id);
+		query.executeUpdate();
+		trans.commit();
+		
+		return "User Deleted Successfully";
+	}
+
+}

@@ -1,0 +1,13 @@
+INDEX VERSION 1.134
+C:\Java Training\Day 1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1272624746.index
+\JspExamples\src\main\java
+C:\Java Training\Day 1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3374727805.index
+\JdbcServlets\src\main\java
+C:\Java Training\Day 1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\473296000.index
+\JspJdbc\src\main\java
+C:\Java Training\Day 1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1490708773.index
+\ServletExamples\src\main\java
+C:\Java Training\Day 1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1621083369.index
+\ServeletEx\src\main\java
+C:\Java Training\Day 1\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4269200160.index
+\DemoProjet\src\main\java

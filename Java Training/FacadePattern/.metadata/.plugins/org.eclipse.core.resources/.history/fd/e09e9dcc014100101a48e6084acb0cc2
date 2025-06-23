@@ -1,0 +1,11 @@
+package com.java.facade.example2;
+
+public class MainProg {
+	
+	public static void main(String[] args) {
+		
+		FeverPatientFacade obj = new FeverPatientFacade();
+		
+	}
+
+}

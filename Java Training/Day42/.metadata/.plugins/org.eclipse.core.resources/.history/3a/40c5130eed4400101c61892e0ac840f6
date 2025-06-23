@@ -1,0 +1,14 @@
+package com.java.ims.model;
+
+public class InsurancePlanDetails {
+	
+	private int planDetailId;
+    private InsurancePlan plan; 
+    private double premiumAmount;
+    private double coverageAmount;
+    private String description;
+    private String status = "ACTIVE";
+    
+    
+
+}

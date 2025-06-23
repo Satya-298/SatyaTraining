@@ -1,0 +1,46 @@
+package com.java.jsf.model;
+
+public class MedicationHistory {
+	
+	private String medId;
+	private String medicines;
+	private String tests;
+	public String getMedId() {
+		return medId;
+	}
+	public void setMedId(String medId) {
+		this.medId = medId;
+	}
+	public String getMedicines() {
+		return medicines;
+	}
+	public void setMedicines(String medicines) {
+		this.medicines = medicines;
+	}
+	public String getTests() {
+		return tests;
+	}
+	public void setTests(String tests) {
+		this.tests = tests;
+	}
+	public MedicationHistory(String medId, String medicines, String tests) {
+		this.medId = medId;
+		this.medicines = medicines;
+		this.tests = tests;
+	}
+	
+	
+	public MedicationHistory() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}
+
+
+//MedId varchar(30),
+//PatientId varchar(30) references Patient(patientId), 
+//Medicines varchar(30),
+//Tests varchar(30)

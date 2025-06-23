@@ -1,0 +1,12 @@
+package com.java.ejb.beans;
+
+import javax.ejb.Remote;
+
+import com.java.ejb.model.Groups;
+
+@Remote
+public interface GroupsJdbcBeanRemote {
+	
+	String addGroupsDao(Groups groups);
+
+}

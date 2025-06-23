@@ -1,0 +1,58 @@
+package com.java.jsf.controller;
+
+import java.sql.SQLException;
+
+import com.java.ejb.beans.ExpensesEjbImpl;
+import com.java.ejb.model.Groups;
+import com.java.ejb.model.Users;
+import com.java.jsf.model.Expenses;
+
+public class ExpensesController {
+
+	
+	
+    private com.java.ejb.model.Expenses ejbExpense; 
+    private ExpensesEjbImpl ejbExpensesImpl;
+
+    public ExpensesController() {
+        
+    }
+    public com.java.ejb.model.Expenses getEjbExpense() {
+		return ejbExpense;
+	}
+	public void setEjbExpense(com.java.ejb.model.Expenses ejbExpense) {
+		this.ejbExpense = ejbExpense;
+	}
+	public ExpensesEjbImpl getEjbExpensesImpl() {
+		return ejbExpensesImpl;
+	}
+	public void setEjbExpensesImpl(ExpensesEjbImpl ejbExpensesImpl) {
+		this.ejbExpensesImpl = ejbExpensesImpl;
+	}
+
+
+	public String addExpense() throws ClassNotFoundException, SQLException {
+        // Convert JSF model to EJB model
+        com.java.ejb.model.Expenses ejbExpense = new com.java.ejb.model.Expenses();
+
+        Users paidBy = new Users();
+        paidBy.setId(expense.getPaidBy().getId());
+
+        Groups group = new Groups();
+        group.setId(expense.getGroups().getId());
+
+        ejbExpense.setPaidBy(paidBy);
+        ejbExpense.setGroups(group);
+        ejbExpense.setDescription(expense.getDescription());
+        ejbExpense.setTotal_amount(expense.getTotal_amount());
+        ejbExpense.setExpense_date(expense.getExpense_date());
+
+        com.java.ejb.model.Expenses result = ejbExpensesImpl.addExpense(ejbExpense);
+
+        if (result != null && result.getId() > 0) {
+            return "ExpensesDashboard?faces-redirect=true";
+        } else {
+            return null;
+        }
+    }
+}

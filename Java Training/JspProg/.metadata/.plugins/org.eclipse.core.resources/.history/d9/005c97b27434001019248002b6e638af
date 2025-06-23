@@ -1,0 +1,19 @@
+package com.java.jsf.dao;
+
+public interface DoctorDao {
+	
+	packag
+
+	public interface DoctorDAO {
+
+	    String addDoctor(Doctor doctor);
+
+	    List<Doctor> showAllDoctors();
+
+	    List<Doctor> showDoctorsByCategory(Specialization specialization);
+
+	    Doctor searchDoctorById(String doctorId);
+	}
+
+
+}

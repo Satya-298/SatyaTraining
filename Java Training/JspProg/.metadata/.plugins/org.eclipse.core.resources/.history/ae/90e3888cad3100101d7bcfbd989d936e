@@ -1,0 +1,15 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import com.java.jsf.model.Menu;
+import com.java.jsf.model.Restaurant;
+
+public interface RestaurantDao {
+
+    // To get all restaurants
+    List<Restaurant> showRestaurantDao();
+
+    // New method to get menu list for a specific restaurant
+    List<Menu> showMenusByRestaurantDao(int restaurantId);
+}

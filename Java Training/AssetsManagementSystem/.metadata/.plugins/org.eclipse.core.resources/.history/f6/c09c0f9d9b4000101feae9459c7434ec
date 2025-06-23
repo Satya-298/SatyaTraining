@@ -1,0 +1,55 @@
+package com.java.jsf.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.jsf.model.Employee;
+import com.java.jsf.util.ConnectionHelper;
+import com.java.jsf.util.EncryptPassword;
+
+public class EmployeeDaoImpl implements EmployeeDao{
+	
+	SessionFactory sf;
+	Session session;
+
+	@Override
+	public String addEmployee(Employee employee) throws ClassNotFoundException {
+	    String encryptedPwd = EncryptPassword.getCode(employee.getPassword());
+	    employee.setPassword(encryptedPwd);
+
+	    session = sf.openSession();
+	    Transaction tx = session.beginTransaction();
+
+	    session.save(employee);
+
+	    tx.commit();
+	    session.close();
+
+	    return "LoginEmployee.jsp?faces-redirect=true";
+	}
+
+
+	@Override
+	public String loginEmployee(String email, String password) throws ClassNotFoundException {
+	    String encryptedPassword = EncryptPassword.getCode(password);
+
+	    Session session = sf.openSession();
+	    Criteria criteria = session.createCriteria(Employee.class);
+	    criteria.add(Restrictions.eq("email", email));
+	    criteria.add(Restrictions.eq("password", encryptedPassword));
+
+	    Employee employee = (Employee) criteria.uniqueResult();
+	    session.close();
+
+	    return (employee != null) ? "EmployeeDashboard.jsp?faces-redirect=true" 
+	                              : "EmployeeLogin.jsp?faces-redirect=true";
+	}
+
+}

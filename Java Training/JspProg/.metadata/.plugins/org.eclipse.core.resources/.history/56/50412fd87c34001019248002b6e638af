@@ -1,0 +1,12 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+public interface MedicationHistoryDao {
+
+    // Show full medication history for a given patient
+    List<MedicationHistory> showPatientMedicalHistory(String patientId);
+
+    // Show only test-related history for a given patient
+    List<String> showPatientTests(String patientId);
+}

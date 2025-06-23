@@ -1,0 +1,15 @@
+package com.java.ejb;
+
+import java.sql.Connection;
+import java.util.ResourceBundle;
+
+public class ConnectionHelper {
+	
+	public static Connection getConnection() {
+		ResourceBundle rb = ResourceBundle.getBundle("db");
+		String driver = rb.getString("driver");
+		String url = rb.getString("url");
+		String user = 
+	}
+
+}

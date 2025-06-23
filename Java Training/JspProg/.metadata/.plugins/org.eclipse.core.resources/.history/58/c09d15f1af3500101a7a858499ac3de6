@@ -1,0 +1,102 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+import com.java.jsf.dao.DoctorDao;
+import com.java.jsf.model.Doctor;
+import com.java.jsf.model.Specialization;
+
+public class DoctorController {
+
+    private DoctorDao doctorDao; 
+    private Doctor doctor; 
+    private Specialization selectedspecialization;
+    private List<Doctor> filteredDoctors;
+    private String message; 
+
+    public DoctorDao getDoctorDao() {
+        return doctorDao;
+    }
+
+    public void setDoctorDao(DoctorDao doctorDao) {
+        this.doctorDao = doctorDao;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+    
+    public Specialization getSelectedspecialization() {
+		return selectedspecialization;
+	}
+
+	public void setSelectedspecialization(Specialization selectedspecialization) {
+		this.selectedspecialization = selectedspecialization;
+	}
+	
+	public List<Doctor> getFilteredDoctors() {
+		return filteredDoctors;
+	}
+
+	public void setFilteredDoctors(List<Doctor> filteredDoctors) {
+		this.filteredDoctors = filteredDoctors;
+	}
+
+	public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	public DoctorController() {
+        
+    }
+    
+    public List<Doctor> getshowAllDoctors() {
+        return doctorDao.showAllDoctors();
+    }
+    
+    public String searchByCategory() {
+        if (selectedspecialization != null) {
+            filteredDoctors = doctorDao.showDoctorsByCategory(selectedspecialization);
+        }
+        return null; // Stay on the same page
+    }
+
+    public Doctor searchedDoctorById() {
+        Doctor foundDoctor = doctorDao.searchDoctorById(doctor.getDoctorId());
+        if (foundDoctor != null) {
+            this.doctor = foundDoctor;
+        }
+        return null; // Stay on the same page
+    }
+
+    
+    public String addDoctor() {
+        String result = doctorDao.addDoctor(doctor);
+        if (result != null && result.contains("Inserted")) {
+            message = "Doctor added successfully."; 
+        } else {
+            message = "Failed to add doctor.";
+        }
+        return null;
+    }
+    
+    public String goToDashboard() {
+        return "DoctorDashboard?faces-redirect=true";
+    }
+    
+    public String goToPatientDashboard() {
+        return "PatientDashboard?faces-redirect=true";
+    }
+    
+}

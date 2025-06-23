@@ -1,0 +1,9 @@
+package com.java.ejb.dao;
+
+import com.java.ejb.model.GroupMembers;
+
+public interface MembersDao {
+	
+	String addMembersDao(GroupMembers );
+
+}

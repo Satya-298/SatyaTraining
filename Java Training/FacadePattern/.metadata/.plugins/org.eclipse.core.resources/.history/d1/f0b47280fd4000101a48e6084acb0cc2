@@ -1,0 +1,17 @@
+package com.java.facade.example1;
+
+public class MainProg {
+
+	public static void main(String[] args) {
+		
+		Mcq mcq = new Mcq();
+		Practical practical = new Practical();
+		Project project = new Project();
+		HackerRank hackerRank = new HackerRank();
+		
+		System.out.println(mcq);
+		System.out.println(practical);
+		System.out.println(project);
+		System.out.println(hackerRank);
+	}
+}

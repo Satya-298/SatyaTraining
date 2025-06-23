@@ -1,0 +1,29 @@
+<%@page import="com.java.jdbc.model.Employ"%>
+<%@page import="java.util.List"%>
+<%@page import="com.java.jdbc.dao.EmployDaoImpl"%>
+<%@page import="com.java.jdbc.dao.EmployDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	response.setContentType("text/html");
+	EmployDao dao = new EmployDaoImpl();
+	List<Employ> employList = dao.showEmployDao(); 
+	for(Employ employ : employList) {
+%>
+	<tr>
+		<td><a href=UpdateEmploy.jsp?empno=<%=employ.getEmpno() %>>Update</a> </td>
+	</tr>
+<%
+	}
+%>
+
+
+</body>
+</html>

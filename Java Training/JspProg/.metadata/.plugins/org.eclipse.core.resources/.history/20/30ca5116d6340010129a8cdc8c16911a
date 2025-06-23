@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.java.jsf.model.Doctor" table="DOCTOR">
+
+        <!-- Primary Key -->
+        <id name="doctorId" type="java.lang.String">
+            <column name="DOCTORID"/>
+            <generator class="assigned"/>
+        </id>
+
+        <!-- Doctor Name -->
+        <property name="doctorName" type="java.lang.String">
+            <column name="DOCTORNAME"/>
+        </property>
+
+        <!-- Specialization Enum -->
+        <property name="specialization">
+            <column name="SPECIALIZATION"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.jsf.model.Specialization</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+        <!-- Location -->
+        <property name="location" type="java.lang.String">
+            <column name="LOCATION"/>
+        </property>
+
+        <!-- Mobile Number -->
+        <property name="mobileNo" type="java.lang.String">
+            <column name="MOBILENO"/>
+        </property>
+
+        <!-- Status Enum -->
+        <property name="isStatus">
+            <column name="ISSTATUS"/>
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.jsf.model.IsStatus</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+        <!-- One-to-many mapping to Patient -->
+        <list name="patientList" table="PATIENT" inverse="true" cascade="all">
+    <key column="DOCTORID"/>
+    <one-to-many class="com.java.jsf.model.Patient"/>
+</list>
+
+
+
+    </class>
+
+    <!-- HQL Named Queries -->
+    <query name="showDoctor">
+        from Doctor
+    </query>
+
+    <query name="showDoctorsByCategory">
+        from Doctor d where d.specialization = :specialization
+    </query>
+
+    <query name="searchDoctorById">
+        from Doctor d where d.doctorId = :doctorId
+    </query>
+
+</hibernate-mapping>

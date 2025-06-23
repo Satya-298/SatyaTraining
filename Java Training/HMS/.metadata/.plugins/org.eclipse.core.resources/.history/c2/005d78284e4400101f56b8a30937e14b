@@ -1,0 +1,50 @@
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<f:view>
+<html>
+<head>
+    <title>Add Provider</title>
+</head>
+<body>
+    <h:form>
+
+        <h2>Add New Provider</h2>
+
+        <h:panelGrid columns="2">
+
+            <h:outputLabel for="username" value="Username:" />
+            <h:inputText id="username" value="#{provider.username}" required="true" />
+
+            <h:outputLabel for="name" value="Name:" />
+            <h:inputText id="name" value="#{provider.name}" required="true" />
+
+            <h:outputLabel for="email" value="Email:" />
+            <h:inputText id="email" value="#{provider.email}" required="true" />
+
+            <h:outputLabel for="phone" value="Phone:" />
+            <h:inputText id="phone" value="#{provider.phone}" required="true" />
+
+            <h:outputLabel for="password" value="Password:" />
+            <h:inputSecret id="password" value="#{provider.password}" required="true" />
+
+            <h:outputLabel for="speciality" value="Speciality:" />
+            <h:inputText id="speciality" value="#{provider.speciality}" required="true" />
+
+            <h:outputLabel for="address" value="Address:" />
+            <h:inputTextarea id="address" value="#{provider.address}" required="true" />
+
+            <h:outputLabel for="gender" value="Gender:" />
+            <h:selectOneMenu id="gender" value="#{provider.gender}" required="true">
+                <f:selectItems value="#{enum['com.java.hms.model.Gender'].values()}"
+                               var="g" itemValue="#{g}" itemLabel="#{g}" />
+            </h:selectOneMenu>
+
+        </h:panelGrid>
+
+        <br />
+        <h:commandButton value="Add Provider" action="#{providerController.addProvider}" />
+
+    </h:form>
+</body>
+</html>
+</f:view>

@@ -1,0 +1,17 @@
+import java.rmi.RMISecurityManager;
+import java.rmi.RemoteException;
+
+public class Server {
+	
+	public static void main(String[] args) {
+		
+		System.setSecurityManager(new RMISecurityManager());
+		try {
+			Calc obj = new CalcImpl();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

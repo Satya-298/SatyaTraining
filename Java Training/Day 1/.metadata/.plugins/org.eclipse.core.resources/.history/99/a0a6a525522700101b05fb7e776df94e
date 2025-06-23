@@ -1,0 +1,44 @@
+package com.java.jdbc.model;
+
+import java.sql.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class Incidents {
+	
+	private int incidentId;
+	private String incidentType;
+	private Date incidentDate;
+	private double latitude;
+	private double longitude;
+	private String text;
+	private int victimId;
+	private int suspectId;
+	private int officerId;
+
+}
+
+//IncidentID INT PRIMARY KEY auto_increment,
+//IncidentType VARCHAR(20) NOT NULL,
+//IncidentDate DATE NOT NULL,
+//Latitude DECIMAL(9,2) NOT NULL,
+//Longitude DECIMAL(9,2) NOT NULL,
+//Descriptions TEXT,
+//Status ENUM('Open','Closed','Under Investigation') NOT NULL,
+//VictimID INT,
+//SuspectID INT,
+//OfficerID INT,
+//FOREIGN KEY (VictimID) REFERENCES Victims(VictimID),
+//FOREIGN KEY (SuspectID) REFERENCES Suspects(SuspectID),
+//FOREIGN KEY (OfficerID) REFERENCES Officers(OfficerID)
+//);

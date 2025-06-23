@@ -1,0 +1,16 @@
+package com.java.facade.example2;
+
+public class MainProg3 {
+	
+	public static void main(String[] args) {
+		
+	
+	
+	BloodTest bloodTest = new BloodTest();
+	DopplerTest dopplerTestt = new DopplerTest();
+	BetaHcg betaHcg = new BetaHcg();
+	
+	PregnantFacade obj = new PregnantFacade(bloodTest, dopplerTestt, betaHcg);
+	obj.info();
+	}
+}

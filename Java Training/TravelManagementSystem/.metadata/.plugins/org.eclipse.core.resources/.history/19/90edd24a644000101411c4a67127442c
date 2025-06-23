@@ -1,0 +1,116 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
+<%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
+<f:view>
+<html>
+<head>
+    <title>Add User</title>
+    <style>
+        /* Reset some basics */
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            color: #333;
+        }
+        .form-container {
+            background: white;
+            padding: 30px 35px;
+            border-radius: 12px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+            max-width: 420px;
+            width: 100%;
+            transition: box-shadow 0.3s ease;
+        }
+        .form-container:hover {
+            box-shadow: 0 24px 50px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            font-weight: 700;
+            color: #4b3ca7;
+            user-select: none;
+        }
+        h:outputLabel {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #555;
+            user-select: none;
+        }
+        /* Style JSF inputText as text inputs */
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            font-family: inherit;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 8px #667eeaaa;
+        }
+        .error-message {
+            color: #e53e3e;
+            font-size: 0.85rem;
+            margin-top: -12px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            user-select: none;
+        }
+        button {
+            width: 100%;
+            background: #764ba2;
+            color: white;
+            padding: 14px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+        }
+        button:hover, button:focus {
+            background: #5a3985;
+            box-shadow: 0 4px 20px #5a398580;
+            outline: none;
+        }
+        button:active {
+            background: #3f2f62;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add User</h1>
+        <h:form prependId="false">
+            <h:outputLabel for="userName" value="User Name" />
+            <h:inputText id="userName" value="#{users.userName}" />
+            <h:message for="userName" styleClass="error-message" />
+
+            <h:outputLabel for="email" value="User Email" />
+            <h:inputText id="email" value="#{users.email}" />
+            <h:message for="email" styleClass="error-message" />
+
+            <h:commandButton action="#{userDao.addUserDao(users)}" value="Add User" />
+        </h:form>
+    </div>
+</body>
+</html>
+</f:view>

@@ -1,0 +1,71 @@
+package com.java.jsf.controller;
+
+import java.sql.SQLException;
+
+import com.java.ejb.beans.ExpensesEjbImpl;
+import com.java.ejb.model.Groups;
+import com.java.ejb.model.Users;
+import com.java.jsf.dao.ExpenseDao;
+import com.java.jsf.model.Expenses;
+
+public class ExpensesController {
+
+	private Expenses expense;
+	private ExpenseDao expensesDao;
+	
+    private com.java.ejb.model.Expenses ejbExpense; 
+    private ExpensesEjbImpl ejbExpensesImpl;
+
+    public ExpensesController() {
+        
+    }
+    public com.java.ejb.model.Expenses getEjbExpense() {
+		return ejbExpense;
+	}
+	public void setEjbExpense(com.java.ejb.model.Expenses ejbExpense) {
+		this.ejbExpense = ejbExpense;
+	}
+	public ExpensesEjbImpl getEjbExpensesImpl() {
+		return ejbExpensesImpl;
+	}
+	public void setEjbExpensesImpl(ExpensesEjbImpl ejbExpensesImpl) {
+		this.ejbExpensesImpl = ejbExpensesImpl;
+	}	
+	public Expenses getExpense() {
+		return expense;
+	}
+	public void setExpense(Expenses expense) {
+		this.expense = expense;
+	}
+	public ExpenseDao getExpensesDao() {
+		return expensesDao;
+	}
+	public void setExpensesDao(ExpenseDao expensesDao) {
+		this.expensesDao = expensesDao;
+	}
+	
+	public List
+	
+	public String addExpense() throws ClassNotFoundException, SQLException {
+
+        Users paidBy = new Users();
+        paidBy.setId(ejbExpense.getPaidBy().getId());
+
+        Groups group = new Groups();
+        group.setId(ejbExpense.getGroups().getId());
+
+        ejbExpense.setPaidBy(paidBy);
+        ejbExpense.setGroups(group);
+        ejbExpense.setDescription(ejbExpense.getDescription());
+        ejbExpense.setTotal_amount(ejbExpense.getTotal_amount());
+        ejbExpense.setExpense_date(ejbExpense.getExpense_date());
+
+        com.java.ejb.model.Expenses result = ejbExpensesImpl.addExpense(ejbExpense);
+
+        if (result != null && result.getId() > 0) {
+            return "ExpensesDashboard?faces-redirect=true";
+        } else {
+            return null;
+        }
+    }
+}

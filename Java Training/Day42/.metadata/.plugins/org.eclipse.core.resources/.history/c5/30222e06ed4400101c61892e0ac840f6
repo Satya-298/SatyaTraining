@@ -1,0 +1,5 @@
+package com.java.ims.model;
+
+public class InsurancePlanDetails {
+
+}

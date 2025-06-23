@@ -1,0 +1,11 @@
+package com.java.jsf.util;
+
+import org.hibernate.SessionFactory;
+
+public class SessionHelper {
+	
+	public static SessionFactory getConnection() {
+		return new Session
+	}
+
+}

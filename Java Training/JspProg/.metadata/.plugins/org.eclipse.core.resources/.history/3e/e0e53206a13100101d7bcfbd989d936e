@@ -1,0 +1,14 @@
+<h:dataTable value="#{restaurantController.selectedMenuList}" var="m" rendered="#{restaurantController.selectedRestaurantId eq r.restaurantId}" border="1">
+    <h:column>
+        <f:facet name="header">Item</f:facet>
+        <h:outputText value="#{m.itemName}" />
+    </h:column>
+    <h:column>
+        <f:facet name="header">Price</f:facet>
+        <h:outputText value="#{m.price}" />
+    </h:column>
+    <h:column>
+        <f:facet name="header">Rating</f:facet>
+        <h:outputText value="#{m.rating}" />
+    </h:column>
+</h:dataTable>

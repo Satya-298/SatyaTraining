@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.sql.Timestamp"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+    <fullyQualifiedTypeName name="org.hibernate.cfg.AnnotationConfiguration"/>
+    <fullyQualifiedTypeName name="com.java.hms.util.SessionHelper"/>
+    <fullyQualifiedTypeName name="org.hibernate.Query"/>
+    <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
+    <fullyQualifiedTypeName name="com.java.hms.dao.ProviderDao"/>
+    <fullyQualifiedTypeName name="com.java.hms.model.Recipient"/>
+    <fullyQualifiedTypeName name="com.java.hms.model.Provider"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.java.hms.model.Gender"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="com.java.hms.dao.ProviderDaoImpl"/>
+    <fullyQualifiedTypeName name="com.java.hms.model.ProviderAvailability"/>
+    <fullyQualifiedTypeName name="com.java.hms.model.Appointment"/>
+    <fullyQualifiedTypeName name="com.java.hms.model.MedicalHistory"/>
+</qualifiedTypeNameHistroy>

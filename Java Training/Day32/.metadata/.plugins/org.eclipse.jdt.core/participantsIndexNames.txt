@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Java Training\Day32\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2607204380.index
+\JsfEjbClient\src\main\java
+C:\Java Training\Day32\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\446343440.index
+\EjbJsf\src\main\java

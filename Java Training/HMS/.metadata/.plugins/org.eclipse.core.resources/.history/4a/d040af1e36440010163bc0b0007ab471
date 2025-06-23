@@ -1,0 +1,10 @@
+package com.java.hms.controller;
+
+import com.java.hms.dao.ProviderDao;
+
+public class ProviderController {
+	
+	private ProviderDao providerDao;
+	
+
+}

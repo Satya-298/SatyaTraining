@@ -1,0 +1,35 @@
+<h:form>
+    <h:dataTable value="#{doctorController.showAllDoctors}" var="d" border="1" cellpadding="5" cellspacing="0">
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputLabel value="Doctor ID" />
+            </f:facet>
+            <h:outputText value="#{d.doctorId}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputLabel value="Doctor Name" />
+            </f:facet>
+            <h:outputText value="#{d.doctorName}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputLabel value="Specialization" />
+            </f:facet>
+            <h:outputText value="#{d.specialization}" />
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">
+                <h:outputLabel value="View Details" />
+            </f:facet>
+            <h:commandButton value="View" action="#{doctorController.searchDoctorById}">
+                <f:setPropertyActionListener target="#{doctorController.doctor.doctorId}" value="#{d.doctorId}" />
+            </h:commandButton>
+        </h:column>
+
+    </h:dataTable>
+</h:form>

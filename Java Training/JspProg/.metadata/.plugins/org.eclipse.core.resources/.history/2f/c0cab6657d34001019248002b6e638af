@@ -1,0 +1,36 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.Doctor;
+import com.java.jsf.model.Patient;
+import com.java.jsf.util.SessionHelper;
+
+public class PatientDaoImpl implements PatientDao{
+
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+	public Patient showPatientById(String patientId) {
+		sf = SessionHelper.getConnection();
+	    session = sf.openSession();
+	    Query query = session.getNamedQuery("searchDoctorById");
+	    query.setParameter("patientId", patientId);
+	    Patient patient = (Patient) query.uniqueResult();
+	    session.close();
+	    return patient;
+	}
+
+	@Override
+	public List<Patient> showPatientsByDoctorId(String doctorId) {
+		
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.java.jsf.model;
+
+public class Menu {
+	
+	private int menuId;
+	private String itemName;
+	private dob
+
+}
+
+
+//Menuid INT Primary Key Auto_increment,
+//ItemName varchar(30),
+//Price numeric(9,2),
+//RestaurantId INT REFERENCES Restaurant(RestaurantId),
+//rating numeric(9,2)

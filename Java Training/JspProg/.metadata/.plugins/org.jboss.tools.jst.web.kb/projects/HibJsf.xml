@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kb-project>
+ <depends-on-projects/>
+ <used-by-projects/>
+ <paths>
+  <path value="C:/Users/satyaprakashm/.m2/repository/com/mysql/mysql-connector-j/8.0.31/mysql-connector-j-8.0.31.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/jersey/inject/jersey-hk2/3.1.3/jersey-hk2-3.1.3.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/el-api.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-i18n-zh-CN.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-i18n-ru.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/hk2/hk2-api/3.0.4/hk2-api-3.0.4.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-i18n-de.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/com/sun/faces/jsf-api/2.2.20/jsf-api-2.2.20.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/jsp-api.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/jasper-el.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/hibernate/common/hibernate-commons-annotations/4.0.4.Final/hibernate-commons-annotations-4.0.4.Final.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/jersey/core/jersey-common/3.1.3/jersey-common-3.1.3.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/jersey/core/jersey-server/3.1.3/jersey-server-3.1.3.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-i18n-ko.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-websocket.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/catalina-ha.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/ecj-4.6.3.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/jersey/containers/jersey-container-servlet-core/3.1.3/jersey-container-servlet-core-3.1.3.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/websocket-api.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/hk2/osgi-resource-locator/1.0.3/osgi-resource-locator-1.0.3.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/jakarta/ws/rs/jakarta.ws.rs-api/3.1.0/jakarta.ws.rs-api-3.1.0.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-api.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/hk2/external/aopalliance-repackaged/3.0.4/aopalliance-repackaged-3.0.4.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/catalina-tribes.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-dbcp.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/jersey/core/jersey-client/3.1.3/jersey-client-3.1.3.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/servlet-api.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/hk2/hk2-utils/3.0.4/hk2-utils-3.0.4.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-i18n-fr.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/annotations-api.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/glassfish/hk2/hk2-locator/3.0.4/hk2-locator-3.0.4.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-i18n-es.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/jasper.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/jaspic-api.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-i18n-ja.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-jdbc.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/com/google/protobuf/protobuf-java/3.19.4/protobuf-java-3.19.4.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-coyote.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-util.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/javax/servlet/jstl/1.2/jstl-1.2.jar">
+   <libraries>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c-1_0-rt.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c-1_0.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/c.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt-1_0-rt.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt-1_0.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fmt.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/fn.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/permittedtaglibs.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/scriptfree.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql-1_0-rt.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql-1_0.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/sql.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x-1_0-rt.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x-1_0.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jstl-1.2.jar/meta-inf/x.tld" project="HibJsf"/>
+    </library>
+   </libraries>
+  </path>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-util-scan.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/catalina-ant.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/hibernate/hibernate-core/4.3.5.Final/hibernate-core-4.3.5.Final.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/catalina.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/com/sun/faces/jsf-impl/2.2.20/jsf-impl-2.2.20.jar">
+   <libraries>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jsf-impl-2.2.20.jar/meta-inf/html_basic.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jsf-impl-2.2.20.jar/meta-inf/jsf_core.tld" project="HibJsf"/>
+    </library>
+    <library class="tld">
+     <id class="model-object"
+      path="FileSystems/lib-jsf-impl-2.2.20.jar/meta-inf/mojarra_ext.tld" project="HibJsf"/>
+    </library>
+   </libraries>
+  </path>
+  <path value="C:/apache-tomcat-8.5.99/lib/tomcat-jni.jar"/>
+  <path value="C:/Users/satyaprakashm/.m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
+  <path value="C:/apache-tomcat-8.5.99/lib/catalina-storeconfig.jar"/>
+ </paths>
+ <validation>
+  <core validator-id="jboss.cdi.core"/>
+  <el>
+   <linked-el length="17" name="%0" offset="1086" path="%1"/>
+   <linked-el length="9" name="%0" offset="1693" path="%2"/>
+   <linked-el length="16" name="%0" offset="656" path="%1"/>
+   <linked-el length="18" name="%0" offset="800" path="%1"/>
+   <linked-el length="16" name="%0" offset="897" path="%1"/>
+   <linked-el length="17" name="%0" offset="994" path="%1"/>
+   <linked-el length="17" name="%0" offset="500" path="%1"/>
+   <linked-el length="44" name="%0" offset="1188" path="%1"/>
+   <linked-el length="12" name="%3" offset="2158" path="%4"/>
+   <linked-el length="12" name="%3" offset="2019" path="%5"/>
+   <linked-el length="22" name="%6" offset="707" path="%7"/>
+   <linked-el length="17" name="%8" offset="500" path="%1"/>
+   <linked-el length="17" name="%9" offset="1361" path="%10"/>
+   <linked-el length="19" name="%11" offset="448" path="%12"/>
+   <linked-el length="17" name="%13" offset="994" path="%1"/>
+   <linked-el length="42" name="%14" offset="603" path="%12"/>
+   <linked-el length="19" name="%14" offset="448" path="%12"/>
+   <linked-el length="19" name="%14" offset="550" path="%12"/>
+   <linked-el length="13" name="%15" offset="1260" path="%5"/>
+   <linked-el length="16" name="%16" offset="897" path="%1"/>
+   <linked-el length="16" name="%17" offset="656" path="%1"/>
+   <linked-el length="68" name="%18" offset="2277" path="%5"/>
+   <linked-el length="12" name="%18" offset="759" path="%5"/>
+   <linked-el length="12" name="%18" offset="1111" path="%4"/>
+   <linked-el length="17" name="%19" offset="1361" path="%10"/>
+   <linked-el length="64" name="%20" offset="814" path="%4"/>
+   <linked-el length="38" name="%20" offset="517" path="%4"/>
+   <linked-el length="25" name="%20" offset="450" path="%4"/>
+   <linked-el length="12" name="%20" offset="1480" path="%2"/>
+   <linked-el length="24" name="%20" offset="744" path="%4"/>
+   <linked-el length="31" name="%20" offset="583" path="%4"/>
+   <linked-el length="23" name="%21" offset="894" path="%7"/>
+   <linked-el length="22" name="%21" offset="707" path="%7"/>
+   <linked-el length="23" name="%21" offset="803" path="%7"/>
+   <linked-el length="24" name="%21" offset="610" path="%7"/>
+   <linked-el length="22" name="%21" offset="519" path="%7"/>
+   <linked-el length="23" name="%21" offset="422" path="%7"/>
+   <linked-el length="11" name="%22" offset="1375" path="%4"/>
+   <linked-el length="11" name="%22" offset="1014" path="%5"/>
+   <linked-el length="12" name="%23" offset="1769" path="%5"/>
+   <linked-el length="12" name="%23" offset="1900" path="%4"/>
+   <linked-el length="12" name="%24" offset="2158" path="%4"/>
+   <linked-el length="11" name="%24" offset="1375" path="%4"/>
+   <linked-el length="11" name="%24" offset="1637" path="%4"/>
+   <linked-el length="12" name="%24" offset="2019" path="%5"/>
+   <linked-el length="68" name="%24" offset="2277" path="%5"/>
+   <linked-el length="11" name="%24" offset="1014" path="%5"/>
+   <linked-el length="12" name="%24" offset="759" path="%5"/>
+   <linked-el length="12" name="%24" offset="1111" path="%4"/>
+   <linked-el length="12" name="%24" offset="1769" path="%5"/>
+   <linked-el length="12" name="%24" offset="1900" path="%4"/>
+   <linked-el length="11" name="%24" offset="1515" path="%5"/>
+   <linked-el length="13" name="%24" offset="1260" path="%5"/>
+   <linked-el length="23" name="%25" offset="803" path="%7"/>
+   <linked-el length="64" name="%26" offset="814" path="%4"/>
+   <linked-el length="25" name="%26" offset="450" path="%4"/>
+   <linked-el length="24" name="%26" offset="744" path="%4"/>
+   <linked-el length="24" name="%27" offset="610" path="%7"/>
+   <linked-el length="17" name="%28" offset="1086" path="%1"/>
+   <linked-el length="23" name="%29" offset="894" path="%7"/>
+   <linked-el length="38" name="%30" offset="517" path="%4"/>
+   <linked-el length="19" name="%31" offset="550" path="%12"/>
+   <linked-el length="22" name="%32" offset="519" path="%7"/>
+   <linked-el length="18" name="%33" offset="800" path="%1"/>
+   <linked-el length="64" name="%34" offset="814" path="%4"/>
+   <linked-el length="42" name="%34" offset="603" path="%12"/>
+   <linked-el length="68" name="%34" offset="2277" path="%5"/>
+   <linked-el length="35" name="%34" offset="503" path="%5"/>
+   <linked-el length="44" name="%34" offset="1188" path="%1"/>
+   <linked-el length="11" name="%35" offset="1637" path="%4"/>
+   <linked-el length="11" name="%35" offset="1515" path="%5"/>
+   <linked-el length="23" name="%36" offset="422" path="%7"/>
+  </el>
+ </validation>
+ <aliases>
+  <alias path="employ" value="%0"/>
+  <alias path="e.basic" value="%3"/>
+  <alias path="employFound.dept" value="%6"/>
+  <alias path="/HibJsf/src/main/webapp/SearchEmploy.jsp" value="%7"/>
+  <alias path="employ.empno" value="%8"/>
+  <alias path="jersey.version" value="%9"/>
+  <alias path="login.userName" value="%11"/>
+  <alias path="employ.desig" value="%13"/>
+  <alias path="/HibJsf/src/main/webapp/ShowDept.jsp" value="%4"/>
+  <alias path="login" value="%14"/>
+  <alias path="e.gender" value="%15"/>
+  <alias path="employ.dept" value="%16"/>
+  <alias path="employ.name" value="%17"/>
+  <alias path="e.empno" value="%18"/>
+  <alias path="jersey" value="%19"/>
+  <alias path="/HibJsf/src/main/webapp/Login.jsp" value="%12"/>
+  <alias path="employDao" value="%20"/>
+  <alias path="employFound" value="%21"/>
+  <alias path="e.name" value="%22"/>
+  <alias path="e.desig" value="%23"/>
+  <alias path="/HibJsf/pom.xml" value="%10"/>
+  <alias path="e" value="%24"/>
+  <alias path="/HibJsf/src/main/webapp/WEB-INF/faces-config.xml" value="%2"/>
+  <alias path="employFound.desig" value="%25"/>
+  <alias path="/HibJsf/src/main/webapp/EmployShow.jsp" value="%5"/>
+  <alias path="employDao.localCode" value="%26"/>
+  <alias path="employFound.gender" value="%27"/>
+  <alias path="employ.basic" value="%28"/>
+  <alias path="employFound.basic" value="%29"/>
+  <alias path="employDao.employLocaleCodeChanged" value="%30"/>
+  <alias path="login.passCode" value="%31"/>
+  <alias path="employFound.name" value="%32"/>
+  <alias path="employ.gender" value="%33"/>
+  <alias path="employController" value="%34"/>
+  <alias path="/HibJsf/src/main/webapp/AddEmploy.jsp" value="%1"/>
+  <alias path="e.dept" value="%35"/>
+  <alias path="employFound.empno" value="%36"/>
+ </aliases>
+ <includes/>
+ <uris>
+  <uri value="http://java.sun.com/jsf/core">
+   <prefix>f</prefix>
+  </uri>
+  <uri value="http://java.sun.com/jsf/html">
+   <prefix>h</prefix>
+  </uri>
+ </uris>
+</kb-project>

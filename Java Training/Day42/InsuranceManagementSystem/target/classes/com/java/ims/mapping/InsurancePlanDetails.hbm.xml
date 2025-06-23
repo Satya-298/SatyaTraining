@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.insurance.model.InsurancePlanDetails" table="insuranceplandetails">
+        <id name="planDetailId" column="planDetailId" type="int">
+            <generator class="identity"/>
+        </id>
+
+        <many-to-one name="plan" class="com.java.insurance.model.InsurancePlan" column="planId" not-null="true"/>
+
+        <property name="premiumAmount" column="premiumAmount"/>
+        <property name="coverageAmount" column="coverageAmount"/>
+        <property name="description" column="Description"/>
+        <property name="status" column="status"/>
+    </class>
+</hibernate-mapping>

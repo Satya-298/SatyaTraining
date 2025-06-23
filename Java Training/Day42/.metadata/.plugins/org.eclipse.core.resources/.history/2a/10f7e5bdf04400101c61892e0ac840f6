@@ -1,0 +1,47 @@
+package com.java.ims.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.ims.model.InsuranceCompany;
+import com.java.ims.util.SessionHelper;
+
+public class InsuranceCompanyDaoImpl implements InsuranceCompanyDao {
+	
+	SessionFactory sf;
+	Session session;
+
+	@Override
+	public String addCompany(InsuranceCompany company) {
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+        session.save(company);
+        trans.commit();
+        return "Insurance company added successfully.";
+	}
+
+	@Override
+	public List<InsuranceCompany> showAllCompanies() {
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+        Query query = session.createQuery("from InsuranceCompany", InsuranceCompany.class);
+        List<InsuranceCompany> company = query.list(); 
+        return company;
+        
+	}
+
+	@Override
+	public InsuranceCompany searchCompanyById(int companyId) {
+		sf = SessionHelper.getSession()
+	}
+		 session = sf.openSession()) {
+	            return session.get(InsuranceCompany.class, companyId);
+	            return null;
+	}
+
+}

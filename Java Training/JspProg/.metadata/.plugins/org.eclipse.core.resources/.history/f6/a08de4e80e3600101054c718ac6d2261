@@ -1,0 +1,11 @@
+package com.java.st;
+
+public class DotnetTraining extends Training {
+
+	@Override
+	String getTrainingDetails() {
+		// TODO Auto-generated method stub
+		return "Dotnet";
+	}
+
+}

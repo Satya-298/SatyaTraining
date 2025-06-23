@@ -1,0 +1,21 @@
+package com.java.ejb.beans;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class ExpensesJdbcBean
+ */
+@Stateless
+@Remote(ExpensesJdbcBeanRemote.class)
+public class ExpensesJdbcBean implements ExpensesJdbcBeanRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public ExpensesJdbcBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

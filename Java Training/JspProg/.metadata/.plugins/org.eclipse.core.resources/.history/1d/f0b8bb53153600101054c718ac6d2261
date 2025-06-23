@@ -1,0 +1,10 @@
+package com.java.abs1;
+
+
+public class AbstractFactory {
+	
+	public Mobile getMobileDetails(Mobile mobile) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

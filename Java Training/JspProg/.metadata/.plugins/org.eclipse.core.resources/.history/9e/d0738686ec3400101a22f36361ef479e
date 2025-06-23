@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="com.java.jsf.model.Patient" table="PATIENT">
+
+        <!-- Primary Key -->
+        <id name="patientId" type="java.lang.String">
+            <column name="PATIENTID"/>
+            <generator class="assigned"/>
+        </id>
+
+        <!-- Patient Name -->
+        <property name="patientName" type="java.lang.String">
+            <column name="PATIENTNAME"/>
+        </property>
+
+        <!-- Many-to-One: Doctor -->
+        <many-to-one name="doctor" class="com.java.jsf.model.Doctor" column="DOCTORID" not-null="true"/>
+
+        <!-- Date of Birth -->
+        <property name="dateOfBirth" type="date">
+            <column name="DATEOFBIRTH"/>
+        </property>
+
+        <!-- One-to-Many: MedicationHistory as List -->
+        <set name="medicationHistoryList" table="MEDICATIONHISTORY" inverse="true" cascade="all">
+            <key column="PATIENTID"/>
+            <one-to-many class="com.java.jsf.model.MedicationHistory"/>
+        </set>
+
+    </class>
+
+    <!-- HQL Named Queries -->
+    <query name="showPatientById">
+    	select p from Patient p join fetch p.doctor where p.patientId = :patientId
+	</query>
+
+ <query name="showPatientById">
+        from Patient p where p.patientId = :patientId
+    </query>
+    <query name="showPatientByDoctorId">
+        from Patient p where p.doctor.doctorId = :doctorId
+    </query>
+
+</hibernate-mapping>

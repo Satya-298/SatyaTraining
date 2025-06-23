@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+
+<f:view>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center font-sans">
+
+    <!-- Dashboard Panel -->
+    <div class="bg-white p-10 rounded-lg shadow-xl max-w-lg text-center">
+        
+        <!-- Welcome Message -->
+        <h2 class="text-3xl font-bold text-blue-900 mb-6">Welcome to Hospital Management System</h2>
+
+        <h:form>
+            <!-- Doctor Management Button -->
+            <div class="mb-8">
+                <h:commandButton value="🩺 Doctor Management" action="DoctorDashboard"
+                                 styleClass="flex items-center justify-center w-32 h-32 bg-blue-700 text-white font-semibold rounded-xl border-4 border-blue-500 hover:bg-blue-600 transition-all duration-300">
+                    <span class="text-4xl">🩺</span>
+                </h:commandButton>
+            </div>
+
+            <!-- Patient Management Button -->
+            <div class="mb-8">
+                <h:commandButton value="🧑‍⚕️ Patient Management" action="PatientDashboard"
+                                 styleClass="flex items-center justify-center w-32 h-32 bg-blue-700 text-white font-semibold rounded-xl border-4 border-blue-500 hover:bg-blue-600 transition-all duration-300">
+                    <span class="text-4xl">🧑‍⚕️</span>
+                </h:commandButton>
+            </div>
+
+            <!-- Medication History Button -->
+            <div>
+                <h:commandButton value="💊 Medication History" action="MedicationHistoryDashboard"
+                                 styleClass="flex items-center justify-center w-32 h-32 bg-blue-700 text-white font-semibold rounded-xl border-4 border-blue-500 hover:bg-blue-600 transition-all duration-300">
+                    <span class="text-4xl">💊</span>
+                </h:commandButton>
+            </div>
+        </h:form>
+    </div>
+
+</body>
+</html>
+</f:view>

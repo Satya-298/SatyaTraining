@@ -1,0 +1,17 @@
+package com.java.hms.model;
+
+import java.util.Date;
+
+public class ProviderAvailability {
+    
+    private int availabilityId;
+    private Date availableDate;   
+    private Date startTime;       
+    private Date endTime;         
+    private boolean isRecurring;
+    private String notes;
+
+    private Provider provider;
+
+    
+}

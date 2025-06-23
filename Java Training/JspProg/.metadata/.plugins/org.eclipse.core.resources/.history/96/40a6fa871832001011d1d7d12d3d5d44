@@ -1,0 +1,14 @@
+package com.java.jsf.model;
+
+public class Restaurant {
+	
+	private int restaura
+
+}
+
+
+//RestaurantId INT Primary key auto_increment,
+//RestaurantName varchar(30),
+//City varchar(30),
+//rating numeric(9,2),
+//flag ENUM('VEG','NONVEG')

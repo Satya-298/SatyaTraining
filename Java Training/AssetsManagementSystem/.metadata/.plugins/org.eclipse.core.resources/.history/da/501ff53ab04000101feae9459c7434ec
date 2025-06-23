@@ -1,0 +1,59 @@
+package com.java.jsf.dao;
+
+import java.util.Date;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.jsf.model.Asset;
+import com.java.jsf.model.Employee;
+import com.java.jsf.util.SessionHelper;
+
+public class AssetDaoImpl implements AssetDao {
+	
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+    public String addAsset(Asset asset) {
+		sf = SessionHelper.getSession()
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+
+        session.save(asset);
+
+        tx.commit();
+        session.close();
+
+        return "AssetList.jsp?faces-redirect=true";
+    }
+	
+	@Override
+	public Asset searchAssetById(int assetId) {
+	    Session session = sf.openSession();
+	    Asset asset = (Asset) session.get(Asset.class, assetId);
+	    session.close();
+	    return asset;
+	}
+	 
+	@Override
+    public String assignAssetToEmployee(int assetId, int empId) {
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+
+        Asset asset = (Asset) session.get(Asset.class, assetId);
+        Employee employee = (Employee) session.get(Employee.class, empId);
+
+        if (asset != null && employee != null && asset.getAssignedTo() == null) {
+            asset.setAssignedTo(employee);
+            asset.setAssignedDate(new Date());
+            session.update(asset);
+        }
+
+        tx.commit();
+        session.close();
+
+        return "AssetList.jsp?faces-redirect=true";
+    }
+}

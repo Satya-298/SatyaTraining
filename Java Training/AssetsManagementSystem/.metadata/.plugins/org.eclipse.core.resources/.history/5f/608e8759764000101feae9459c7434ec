@@ -1,0 +1,50 @@
+package com.java.jsf.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+import com.java.jsf.model.Admin;
+import com.java.jsf.util.ConnectionHelper;
+import com.java.jsf.util.EncryptPassword;
+
+public class AdminDaoImpl implements AdminDao{
+	
+	
+	@Override
+	public String addAdmin(Admin admin) throws ClassNotFoundException, SQLException{
+		String result = ;
+	    
+	    String sql = "INSERT INTO admin (email, password) VALUES (?, ?)";
+	    Connection conn = ConnectionHelper.getConnection();
+	    PreparedStatement stmt = conn.prepareStatement(sql);
+
+	    String encryptedPwd = EncryptPassword.getCode(admin.getPassword());
+
+	    stmt.setString(1, admin.getEmail());
+	    stmt.setString(2, encryptedPwd);
+
+	    int rows = stmt.executeUpdate();
+	    if (rows > 0) {
+	        result = "AdminLogin.jsp?faces-redirect=true";
+	    }
+	    
+	    return result;
+	}
+    @Override
+    public String loginAdmin(String email, String password) {
+    	sf = SessionHelper.getSession();
+    	session = sf.openSession();
+    	String encryptedPassword = EncryptPassword.getCode(password);
+    	Query query = session.getNamedQuery("loginAdmin");
+    	query.setParameter("email", email);
+        query.setParameter("password", encryptedPassword);
+        List<Admin> admins = query.list();
+        session.close();
+        
+        Admin admin = admins.get(0);
+
+        return "AssetDashboard.jsp?faces-redirect=true";
+    }
+
+}

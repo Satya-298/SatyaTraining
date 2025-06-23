@@ -1,0 +1,8 @@
+package com.java.hms.controller;
+
+public class ProviderController {
+	
+	private ProviderDao providerDao;
+	
+
+}

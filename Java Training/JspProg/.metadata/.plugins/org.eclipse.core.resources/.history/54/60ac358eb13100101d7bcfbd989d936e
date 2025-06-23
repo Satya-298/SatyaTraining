@@ -1,0 +1,43 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.Menu;
+import com.java.jsf.model.Restaurant;
+import com.java.jsf.util.SessionHelper;
+
+public class RestaurantDaoImpl implements RestaurantDao {
+
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+	public List<Restaurant> showRestaurantDao() {
+		sf = SessionHelper.getConnection();
+		session = sf.openSession();
+		Query query = session.getNamedQuery("showRestaurant");
+		List<Restaurant> list = query.list();
+		return list;
+	}
+
+	@Override
+	public List<Menu> getMenusByRestaurantId(int restaurantId) {
+	    sf = SessionHelper.getConnection();
+	    session = sf.openSession();
+
+	    // Get the named query
+	    Query query = session.getNamedQuery("showMenusByRestaurant");
+
+	    // Set the parameter (this is the missing part)
+	    query.setParameter("restaurantId", restaurantId);
+
+	    // Execute the query and return the result
+	    List<Menu> menuList = query.list();
+	    return menuList;
+	}
+
+}

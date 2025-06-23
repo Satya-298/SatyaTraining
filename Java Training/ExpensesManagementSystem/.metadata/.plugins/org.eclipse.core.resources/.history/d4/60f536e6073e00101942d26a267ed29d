@@ -1,0 +1,14 @@
+package com.java.ejb.beans;
+
+import java.sql.SQLException;
+
+import javax.ejb.Remote;
+
+import com.java.ejb.model.Groups;
+
+@Remote
+public interface GroupsJdbcBeanRemote {
+	
+	String addGroups(Groups groups) throws ClassNotFoundException, SQLException;
+
+}

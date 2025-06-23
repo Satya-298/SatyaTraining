@@ -1,0 +1,12 @@
+package com.java.abs1;
+
+import com.java.abs.Training;
+
+public class AbstractFactory {
+	public Mobile getDetails(String topic) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+}

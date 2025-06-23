@@ -1,0 +1,75 @@
+package com.java.ejb.beans;
+
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.regex.Pattern;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+import com.java.ejb.model.Expenses;
+import com.java.ejb.model.Groups;
+import com.java.ejb.model.Users;
+
+public class ExpensesEjbImpl {
+
+    static ExpensesJdbcBeanRemote remote;
+
+    static {
+        try {
+            remote = RemoteHelperExpenses.lookupRemoteStatelessExpenses();
+            System.out.println("Remote Lookup Success: " + remote);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 1. Add Expense with full validation
+    public Expenses addExpense(Expenses expenseInput) throws ClassNotFoundException, SQLException {
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        // Validate user (payer)
+        if (expenseInput.getPaidBy() == null || expenseInput.getUsers().getId() <= 0) {
+            context.addMessage("payer", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Invalid User", "Select a valid user who paid."));
+            context.validationFailed();
+            return null;
+        }
+
+        // Validate group
+        if (expenseInput.getGroups() == null || expenseInput.getGroups().getId() <= 0) {
+            context.addMessage("group", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Invalid Group", "Select a valid group for the expense."));
+            context.validationFailed();
+            return null;
+        }
+
+        // Validate amount
+        if (expenseInput.getTotal_amount() <= 0) {
+            context.addMessage("amount", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Invalid Amount", "Amount must be greater than 0."));
+            context.validationFailed();
+            return null;
+        }
+
+        // Validate description
+        if (expenseInput.getDescription() == null || expenseInput.getDescription().trim().isEmpty()) {
+            context.addMessage("description", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Invalid Description", "Description is required."));
+            context.validationFailed();
+            return null;
+        }
+
+        // Validate date
+        Date today = new Date();
+        if (expenseInput.getExpense_date() == null || expenseInput.getExpense_date().after(today)) {
+            context.addMessage("date", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Invalid Date", "Expense date cannot be in the future."));
+            context.validationFailed();
+            return null;
+        }
+
+        // Call DAO through remote interface
+        return remote.addExpense(expenseInput);
+    }
+}

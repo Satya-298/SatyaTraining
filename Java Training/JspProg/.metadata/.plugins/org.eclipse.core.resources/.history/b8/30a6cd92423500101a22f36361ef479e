@@ -1,0 +1,40 @@
+public class MedicationHistoryDaoImpl implements MedicationHistoryDao {
+
+    @Override
+    public List<MedicationHistory> showPatientMedicalHistory(String patientId) {
+        SessionFactory sf = SessionHelper.getConnection();
+        Session session = sf.openSession();
+        Query query = session.getNamedQuery("showPatientMedicalHistory");
+        query.setParameter("patientId", patientId);
+        
+        List<MedicationHistory> medicationHistories = query.list();
+        session.close();
+        
+        return medicationHistories;
+    }
+
+    @Override
+    public List<String> showPatientTests(String patientId) {
+        SessionFactory sf = SessionHelper.getConnection();
+        Session session = sf.openSession();
+        Query query = session.getNamedQuery("showPatientTests");
+        query.setParameter("patientId", patientId);
+        
+        List<String> tests = query.list(); // List of test names or test ids depending on how you fetch it
+        session.close();
+        
+        return tests;
+    }
+
+    @Override
+    public void addMedicalHistory(MedicationHistory medicationHistory) {
+        SessionFactory sf = SessionHelper.getConnection();
+        Session session = sf.openSession();
+        Transaction transaction = session.beginTransaction();
+        
+        session.save(medicationHistory);
+        
+        transaction.commit();
+        session.close();
+    }
+}

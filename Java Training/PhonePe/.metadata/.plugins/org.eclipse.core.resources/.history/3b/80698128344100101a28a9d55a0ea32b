@@ -1,0 +1,5 @@
+package com.java.pms.util;
+
+public class ConnectionHelper {
+
+}

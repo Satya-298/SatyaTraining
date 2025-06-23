@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.java.jsf.model">
+  <class name="Groups" table="group_s">
+    <id name="id" column="id" type="int">
+      <generator class="increment"/>
+    </id>
+
+    <property name="name" column="name" type="java.lang.String"/>
+    <property name="created_at" column="created_at" type="timestamp"/>
+
+    <!-- One group has many members -->
+    <set name="groupMembers" inverse="true" cascade="all" lazy="true">
+      <key column="group_id"/>
+      <one-to-many class="GroupMembers"/>
+    </set>
+
+    <!-- One group has many expenses -->
+    <set name="expenses" inverse="true" cascade="all" lazy="true">
+      <key column="group_id"/>
+      <one-to-many class="Expenses"/>
+    </set>
+
+  </class>
+</hibernate-mapping>

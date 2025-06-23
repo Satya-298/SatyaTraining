@@ -1,0 +1,12 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+public interface PatientDao {
+
+    // Get patient by patientId
+    Patient showPatientById(String patientId);
+
+    // Get all patients assigned to a doctor
+    List<Patient> showPatientsByDoctorId(String doctorId);
+}

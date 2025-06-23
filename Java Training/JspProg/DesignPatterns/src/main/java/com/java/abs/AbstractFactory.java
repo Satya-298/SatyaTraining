@@ -1,0 +1,9 @@
+package com.java.abs;
+
+public class AbstractFactory {
+
+	public Training getDetails(String topic) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

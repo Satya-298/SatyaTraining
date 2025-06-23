@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;HibOneToMany/src/main/java/com/java/hib/mapping/Employee.hbm.xml&apos; to &apos;Department.hbm.xml&apos;" description="Rename resource &apos;Employee.hbm.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/com/java/hib/mapping/Employee.hbm.xml" name="Department.hbm.xml" stamp="1747119123145" updateReferences="true"/>
+</session>

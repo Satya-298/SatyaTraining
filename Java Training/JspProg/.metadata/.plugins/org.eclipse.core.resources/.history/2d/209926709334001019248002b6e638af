@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class name="com.java.jsf.model.Doctor" table="DOCTOR">
+        
+        <id name="doctorId" type="java.lang.String">
+            <column name="DOCTORID" />
+        </id>
+
+        <property name="doctorName" type="java.lang.String">
+            <column name="DOCTORNAME" />
+        </property>
+
+        <property name="specialization">
+            <column name="SPECIALIZATION" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.jsf.model.Specialization</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+        <property name="location" type="java.lang.String">
+            <column name="LOCATION" />
+        </property>
+
+        <property name="mobileNo" type="java.lang.String">
+            <column name="MOBILENO" />
+        </property>
+
+        <property name="isStatus">
+            <column name="ISSTATUS" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.jsf.model.IsStatus</param>
+                <param name="type">12</param>
+            </type>
+        </property>
+
+        <!-- One-to-many mapping with Patient -->
+        <set name="patientList" table="PATIENT" inverse="true" cascade="all">
+            <key column="DOCTORID" />
+            <one-to-many class="com.java.jsf.model.Patient"/>
+        </set>
+        
+    </class>
+
+    <!-- HQL named queries -->
+    <query name="showDoctor">
+        from Doctor
+    </query>
+
+    <query name="showDoctorByCategory">
+        from Doctor d where d.specialization = :specialization
+    </query>
+
+    <query name="searchByDoctorId">
+        from Doctor d where d.doctorId = :doctorId
+    </query>
+
+</hibernate-mapping>

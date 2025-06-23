@@ -1,0 +1,7 @@
+package com.java.ejb.dao;
+
+public interface MembersDao {
+	
+	String addMembersDao();
+
+}

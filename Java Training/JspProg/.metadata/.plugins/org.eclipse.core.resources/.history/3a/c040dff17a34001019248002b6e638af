@@ -1,0 +1,20 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import com.java.jsf.model.Patient;
+
+public class PatientDaoImpl implements PatientDao{
+
+	@Override
+	public Patient showPatientById(String patientId) {
+		return null;
+	}
+
+	@Override
+	public List<Patient> showPatientsByDoctorId(String doctorId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

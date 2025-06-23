@@ -1,0 +1,94 @@
+package com.java.hms.model;
+
+import java.util.Date;
+import java.sql.Timestamp;
+
+public class MedicalHistory {
+
+    private String procedureId;
+    private Date procedureDate;
+    private String diagnosis;
+    private String recommendations;
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
+
+    private Appointment appointment;
+    private Provider provider;
+    private Recipient recipient;
+    
+    public String getProcedureId() {
+        return procedureId;
+    }
+    public void setProcedureId(String procedureId) {
+        this.procedureId = procedureId;
+    }
+
+    public Date getProcedureDate() {
+        return procedureDate;
+    }
+    public void setProcedureDate(Date procedureDate) {
+        this.procedureDate = procedureDate;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public String getRecommendations() {
+        return recommendations;
+    }
+    public void setRecommendations(String recommendations) {
+        this.recommendations = recommendations;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    public Appointment getAppointment() {
+		return appointment;
+	}
+	public void setAppointment(Appointment appointment) {
+		this.appointment = appointment;
+	}
+	public Provider getProvider() {
+		return provider;
+	}
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+	public Recipient getRecipient() {
+		return recipient;
+	}
+	public void setRecipient(Recipient recipient) {
+		this.recipient = recipient;
+	}
+    
+	public MedicalHistory(String procedureId, Date procedureDate, String diagnosis, String recommendations,
+			Timestamp createdAt, Timestamp updatedAt, Appointment appointment, Provider provider, Recipient recipient) {
+		this.procedureId = procedureId;
+		this.procedureDate = procedureDate;
+		this.diagnosis = diagnosis;
+		this.recommendations = recommendations;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+		this.appointment = appointment;
+		this.provider = provider;
+		this.recipient = recipient;
+	}
+	public MedicalHistory() {
+        super();
+    }
+}

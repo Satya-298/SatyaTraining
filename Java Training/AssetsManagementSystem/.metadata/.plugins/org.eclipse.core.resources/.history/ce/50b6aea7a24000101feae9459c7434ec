@@ -1,0 +1,58 @@
+package com.java.jsf.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.jsf.model.Asset;
+import com.java.jsf.model.Employee;
+
+public class AssetDaoImpl implements {
+	
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+    public String addAsset(Asset asset) {
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+
+        // Just save the asset, no status handling
+        session.save(asset);
+
+        tx.commit();
+        session.close();
+
+        return "AssetList.jsp?faces-redirect=true";
+    }
+	
+	 @Override
+	 public Asset searchAssetById(int assetId) {
+	    Session session = sf.openSession();
+	    Asset asset = session.get(Asset.class, assetId);
+	    session.close();
+	    return asset;
+	 }
+	 
+	@Override
+    public String assignAssetToEmployee(int assetId, int empId) {
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+
+        Asset asset = session.get(Asset.class, assetId);
+        Employee employee = session.get(Employee.class, empId);
+
+        // Assign only if not already assigned
+        if (asset != null && asset.getAssignedTo() == null) {
+            asset.setAssignedTo(employee);
+            asset.setAssignedDate(new Date());
+            session.update(asset);
+        }
+
+        tx.commit();
+        session.close();
+
+        return "AssetList.jsp?faces-redirect=true";
+    }
+
+}

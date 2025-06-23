@@ -1,0 +1,42 @@
+package com.java.ejb.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import com.java.ejb.model.Expenses;
+import com.java.ejb.util.ConnectionHelper;
+
+public class ExpensesDaoImpl implements ExpensesDao {
+
+	Connection conn;
+	
+	
+    @Override
+    public Expenses addExpense(Expenses expense) throws Exception {
+        Connection conn = ConnectionHelper.getConnection();
+
+        String sql = "INSERT INTO expense_s (group_id, paid_by_user_id, description, total_amount, expense_date) " +
+                     "VALUES (?, ?, ?, ?, ?)";
+
+        PreparedStatement ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+        ps.setInt(1, expense.getGroups().getId());
+        ps.setInt(2, expense.getPaidBy().getId());
+        ps.setString(3, expense.getDescription());
+        ps.setDouble(4, expense.getTotal_amount());
+        ps.setDate(5, new java.sql.Date(expense.getExpenseDate().getTime()));
+
+        ps.executeUpdate();
+
+        ResultSet rs = ps.getGeneratedKeys();
+        if (rs.next()) {
+            expense.setId(rs.getInt(1)); // set the generated expense ID back into the object
+        }
+
+        rs.close();
+        ps.close();
+        con.close();
+
+        return expense;
+    }
+}

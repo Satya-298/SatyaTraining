@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;JdbcServlets/src/main/webapp/LoginServlet.html&apos; to &apos;Login.html&apos;" description="Rename resource &apos;LoginServlet.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/LoginServlet.html" name="Login.html" stamp="1746419119225" updateReferences="true"/>
+</session>

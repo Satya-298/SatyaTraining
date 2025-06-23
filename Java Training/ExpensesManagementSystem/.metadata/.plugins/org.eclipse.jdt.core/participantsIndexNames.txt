@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Java Training\ExpensesManagementSystem\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1854394278.index
+\ExpensesClient\src\main\java
+C:\Java Training\ExpensesManagementSystem\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1142963440.index
+\ExpensesManagementSystem\src\main\java

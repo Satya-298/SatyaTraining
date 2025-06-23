@@ -1,0 +1,9 @@
+package com.java.ejb;
+
+public class Employ {
+	
+	private int id;
+	private int name;
+	private Strin
+
+}

@@ -1,0 +1,45 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import com.java.jsf.dao.RestaurantDao;
+import com.java.jsf.model.Menu;
+import com.java.jsf.model.Restaurant;
+
+public class RestaurantController {
+	
+	private RestaurantDao restaurantDao;
+	private Restaurant restaurant;
+	private List<Menu> menuList;
+	private int selectedRestaurantId;
+	
+	public RestaurantDao getRestaurantDao() {
+		return restaurantDao;
+	}
+	public void setRestaurantDao(RestaurantDao restaurantDao) {
+		this.restaurantDao = restaurantDao;
+	}
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+	
+	public List<Restaurant> showRestaurant(){
+		return restaurantDao.showRestaurantDao();
+	}
+	public List<Menu> getMenuList() {
+		return menuList;
+	}
+	public void setMenuList(List<Menu> menuList) {
+		this.menuList = menuList;
+	}
+	
+	public String searchRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+        this.menuList = restaurant.getMenus();  // Fetch the menu list from the restaurant object
+        return "ShowMenu.jsp?faces-redirect=true"; // Navigate to ShowMenu page
+    }
+	
+}

@@ -1,0 +1,11 @@
+package com.java.hms.util;
+
+import org.hibernate.SessionFactory;
+
+public class SessionHelper {
+	
+	public static SessionFactory getSession() {
+		return new AnnotationC
+	}
+
+}

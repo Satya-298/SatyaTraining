@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.java.jsf.model">
+    <class name="AssignedAsset" table="assigned_asset">
+        <id name="assignId" column="assign_id" type="int">
+            <generator class="increment"/>
+        </id>
+
+        <many-to-one name="asset" column="asset_id" class="Asset" not-null="true"/>
+        <many-to-one name="employee" column="employee_id" class="Employee" not-null="true"/>
+        <many-to-one name="admin" column="admin_id" class="Admin" not-null="true"/>
+
+        <property name="assignDate" column="assign_date" type="date" not-null="true"/>
+        <property name="returnDate" column="return_date" type="timestamp"/>
+        <property name="status" column="status" type="string" not-null="true"/>
+    </class>
+</hibernate-mapping>

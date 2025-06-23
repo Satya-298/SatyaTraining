@@ -1,0 +1,22 @@
+	<?xml version="1.0"?>
+	<!DOCTYPE hibernate-mapping PUBLIC 
+	  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+	    <class name="com.java.hms.model.MedicalHistory" table="medical_history">
+	        <id name="procedureId" type="string" column="procedure_id">
+	            <generator class="assigned"/>
+	        </id>
+	
+	        <many-to-one name="appointment" class="com.java.hms.model.Appointment" column="appointment_id" not-null="true" cascade="none"/>
+	        <many-to-one name="provider" class="com.java.hms.model.Provider" column="provider_id" not-null="true" cascade="none"/>
+	        <many-to-one name="recipient" class="com.java.hms.model.Recipient" column="recipient_id" not-null="true" cascade="none"/>
+	
+	        <property name="procedureDate" column="procedure_date" type="date" not-null="true"/>
+	        <property name="diagnosis" column="diagnosis" type="text" not-null="true"/>
+	        <property name="recommendations" column="recommendations" type="text"/>
+	        <property name="createdAt" column="created_at" type="timestamp" not-null="true"/>
+	        <property name="updatedAt" column="updated_at" type="timestamp" not-null="true"/>
+	    </class>
+	</hibernate-mapping>

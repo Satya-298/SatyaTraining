@@ -1,0 +1,26 @@
+package com.java.hms.controller;
+
+import com.java.hms.dao.ProviderDao;
+import com.java.hms.model.Provider;
+
+public class ProviderController {
+	
+	private ProviderDao providerDao;
+	private Provider provider;
+	
+	public ProviderDao getProviderDao() {
+		return providerDao;
+	}
+	public void setProviderDao(ProviderDao providerDao) {
+		this.providerDao = providerDao;
+	}
+	public Provider getProvider() {
+		return provider;
+	}
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+	
+	public String addProvider()
+
+}

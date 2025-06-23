@@ -1,0 +1,11 @@
+package com.java.facade.example2;
+
+public class KidneyPatientFacade {
+	
+	private BloodTest bloodTest;
+	private HeartEchoTest heartEchoTest;
+	private CreatineTest creatineTest;
+	
+	
+
+}

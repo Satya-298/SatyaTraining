@@ -1,0 +1,70 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import com.java.jsf.dao.RestaurantDao;
+import com.java.jsf.dao.RestaurantDaoImpl;
+import com.java.jsf.model.Menu;
+import com.java.jsf.model.Restaurant;
+
+public class RestaurantController {
+
+    private RestaurantDao restaurantDao = new RestaurantDaoImpl(); // Initialize properly
+    private Restaurant restaurant;
+    private List<Menu> menuList;
+    private int selectedRestaurantId;
+
+    // Constructor
+    public RestaurantController() {
+        restaurant = new Restaurant();
+    }
+
+    // Fetch list of restaurants
+    public List<Restaurant> showRestaurant() {
+        return restaurantDao.showRestaurantDao();
+    }
+
+    // Fetch menu list for selected restaurant
+    public void loadMenusForRestaurant(int restaurantId) {
+        this.menuList = restaurantDao.showMenusByRestaurantDao(restaurantId);
+    }
+
+    // Getters and Setters
+    public RestaurantDao getRestaurantDao() {
+        return restaurantDao;
+    }
+
+    public void setRestaurantDao(RestaurantDao restaurantDao) {
+        this.restaurantDao = restaurantDao;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public List<Menu> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
+    }
+
+    public int getSelectedRestaurantId() {
+        return selectedRestaurantId;
+    }
+
+    public void setSelectedRestaurantId(int selectedRestaurantId) {
+        this.selectedRestaurantId = selectedRestaurantId;
+    }
+
+    // Optional: use this if you're selecting restaurant object and loading menus from it
+    public void searchRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+        this.menuList = restaurant.getMenus();
+    }
+}

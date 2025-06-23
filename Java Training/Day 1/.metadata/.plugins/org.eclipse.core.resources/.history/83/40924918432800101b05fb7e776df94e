@@ -1,0 +1,28 @@
+package com.java.jdbc.bal;
+
+import com.java.jdbc.dao.CrimeAnalysisServiceImpl;
+import com.java.jdbc.dao.ICrimeAnalysisService;
+import com.java.jdbc.model.Incidents;
+
+public class CrimeAnalysisServiceBal {
+	
+	static ICrimeAnalysisService dao;
+	static StringBuilder sb;
+	
+	static 
+	{
+		dao = new CrimeAnalysisServiceImpl();
+		sb = new StringBuilder();
+	}
+	
+	public boolean Validate(Incidents incident) {
+		
+		
+		
+		
+		return false;
+		
+	}
+	
+
+}

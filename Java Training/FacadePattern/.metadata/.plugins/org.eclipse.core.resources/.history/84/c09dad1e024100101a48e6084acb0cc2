@@ -1,0 +1,11 @@
+package com.java.facade.example2;
+
+public class ViralFeverPatientFacade {
+	
+	private BloodTest bloodTest;
+	
+	public ViralPatientFacade(BloodTest bloodTest) {
+		this.bloodTest = 
+	}
+
+}

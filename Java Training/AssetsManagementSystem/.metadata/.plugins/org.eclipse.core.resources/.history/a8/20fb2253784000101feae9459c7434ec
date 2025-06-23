@@ -1,0 +1,8 @@
+package com.java.jsf.dao;
+
+public interface EmployeeDao {
+	
+	String addEmployee(Employee employee) throws ClassNotFoundException, SQLException;
+    String loginEmployee(String email, String password) throws ClassNotFoundException, SQLException;
+
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.hms.model.Recipient" table="recipient">
+        <id name="recipientId" type="string" column="recipient_id">
+            <generator class="assigned"/>
+        </id>
+        <property name="username" column="username" type="string" not-null="true" unique="true"/>
+        <property name="name" column="name" type="string" not-null="true"/>
+        <property name="email" column="email" type="string" not-null="true" unique="true"/>
+        <property name="phone" column="phone" type="string" not-null="true"/>
+        <property name="password" column="password" type="string" not-null="true"/>
+        <property name="dob" column="dob" type="date" not-null="true"/>
+		<property name="gender" column="gender" not-null="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.hms.model.Gender</param>
+                <param name="useNamed">false</param> <!-- ordinal mapping -->
+            </type>
+        </property>
+        property name="address" column="address" type="string" not-null="true"/>
+        <property name="healthId" column="health_id" type="string" not-null="true" unique="true"/>
+        <property name="createdAt" column="created_at" type="timestamp" not-null="true"/>
+
+        <set name="appointments" cascade="all" inverse="true" lazy="true">
+            <key column="recipient_id"/>
+            <one-to-many class="com.java.hms.model.Appointment"/>
+        </set>
+
+        <set name="medicalHistories" cascade="all" inverse="true" lazy="true">
+            <key column="recipient_id"/>
+            <one-to-many class="com.java.hms.model.MedicalHistory"/>
+        </set>
+    </class>
+</hibernate-mapping>

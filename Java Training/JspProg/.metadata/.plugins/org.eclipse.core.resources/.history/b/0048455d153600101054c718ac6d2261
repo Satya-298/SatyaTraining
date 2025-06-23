@@ -1,0 +1,18 @@
+package com.java.abs1;
+
+public class MobileFactory extends AbstractFactory {
+	
+	@Override
+	public Mobile getMobileDetails(Mobile  {
+		if(mobile.equals("Samsung")) {
+			return new Samsung();
+		}
+		if(mobile.equals("IPhone")) {
+			return new IPhone();
+		}
+		if(mobile.equals("OnePlus")) {
+			return new OnePlus();
+		}
+		return null;
+	}
+}

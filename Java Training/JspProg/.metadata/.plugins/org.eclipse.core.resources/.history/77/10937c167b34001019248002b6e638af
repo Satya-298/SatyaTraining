@@ -1,0 +1,30 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import com.java.jsf.model.Patient;
+
+public class PatientDaoImpl implements PatientDao{
+
+	SessionFactory sf;
+	Session session;
+	
+
+	@Override
+	public Patient showPatientById(String patientId) {
+		
+		
+		return null;
+	}
+
+	@Override
+	public List<Patient> showPatientsByDoctorId(String doctorId) {
+		
+		
+		return null;
+	}
+
+}

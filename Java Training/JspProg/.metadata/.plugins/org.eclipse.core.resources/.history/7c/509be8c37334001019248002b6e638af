@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.java.jsf.model.Patient" table="PATIENT">
+
+        <id name="patientId" type="java.lang.String">
+            <column name="PATIENTID" />
+        </id>
+
+        <property name="patientName" type="java.lang.String">
+            <column name="PATIENTNAME" />
+        </property>
+
+        <property name="doctorId" type="java.lang.String">
+            <column name="DOCTORID" />
+        </property>
+
+        <property name="dateOfBirth" type="date">
+            <column name="DATEOFBIRTH" />
+        </property>
+
+        <!-- One-to-many with MedicationHistory -->
+        <set name="medicationHistoryList" table="MEDICATIONHISTORY" inverse="true" cascade="all">
+            <key column="PATIENTID"/>
+            <one-to-many class="com.java.jsf.model.MedicationHistory"/>
+        </set>
+
+    </class>
+
+    <!-- Named Queries -->
+    <query name="showPatientById">
+        from Patient p where p.patientId = :patientId
+    </query>
+
+    <query name="showPatientByDoctorId">
+        from Patient p where p.doctorId = :doctorId
+    </query>
+
+</hibernate-mapping>

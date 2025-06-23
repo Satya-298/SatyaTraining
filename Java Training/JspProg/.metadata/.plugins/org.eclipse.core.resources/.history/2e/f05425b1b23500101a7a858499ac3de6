@@ -1,0 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
+<%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
+
+<f:view>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Management Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #004080;
+            overflow: hidden;
+            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .navbar h\\:commandButton {
+            background-color: #ffffff;
+            color: #004080;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .navbar h\\:commandButton:hover {
+            background-color: #cce0ff;
+        }
+
+        .content {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h:form>
+        <div class="navbar">
+            <h:commandButton value="➕ Add Doctor" action="AddDoctor.jsp" />
+            <h:commandButton value="🔍 Search by ID" action="ShowDoctorsById.jsp" />
+            <h:commandButton value="📂 By Category" action="ShowDoctorsByCategory.jsp" />
+            <h:commandButton value="📋 View All" action="ShowDoctor.jsp" />
+            <h:commandButton value="👤 Patient Dashboard" action="PatientDashboard.jsp" />
+            <h:commandButton value="💊 Medication Dashboard" action="MedicationHistoryDashboard.jsp" />
+            <h:commandButton value="Home" action="MainDashboard.jsp" />            
+        </div>
+    </h:form>
+
+    <div class="content">
+        <h2>Welcome to the Doctor Management Dashboard</h2>
+        <p>Select an option from the menu above.</p>
+    </div>
+
+</body>
+</html>
+</f:view>

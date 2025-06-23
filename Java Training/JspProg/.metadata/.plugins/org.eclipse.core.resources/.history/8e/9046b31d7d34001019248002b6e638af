@@ -1,0 +1,52 @@
+package com.java.jsf.dao;
+
+public class MedicationHistoryDaoImpl {
+	
+	import java.util.List;
+
+	import org.hibernate.Query;
+	import org.hibernate.Session;
+	import org.hibernate.SessionFactory;
+	import org.hibernate.Transaction;
+
+	public class MedicationHistoryDaoImpl implements MedicationHistoryDao {
+
+	    SessionFactory sf;
+	    Session session;
+
+	    @Override
+	    public String addMedicalHistory(MedicationHistory medicationHistory) {
+	        sf = SessionHelper.getConnection();
+	        session = sf.openSession();
+	        Transaction trans = session.beginTransaction();
+	        session.save(medicationHistory);
+	        trans.commit();
+	        session.close();
+	        return "Medical history record added.";
+	    }
+
+	    @Override
+	    public List<MedicationHistory> showPatientMedicalHistory(String patientId) {
+	        sf = SessionHelper.getConnection();
+	        session = sf.openSession();
+	        Query query = session.getNamedQuery("showPatientMedicalHistory");
+	        query.setParameter("patientId", patientId);
+	        List<MedicationHistory> historyList = query.list();
+	        session.close();
+	        return historyList;
+	    }
+
+	    @Override
+	    public List<String> showPatientTests(String patientId) {
+	        sf = SessionHelper.getConnection();
+	        session = sf.openSession();
+	        Query query = session.getNamedQuery("showPatientTests");
+	        query.setParameter("patientId", patientId);
+	        List<String> testList = query.list();
+	        session.close();
+	        return testList;
+	    }
+	}
+
+
+}

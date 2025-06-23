@@ -1,0 +1,7 @@
+package com.java.abs1;
+
+
+public class AbstractFactory {
+	
+	public abstract Mobile getMobileDetails(String Mobile);
+}

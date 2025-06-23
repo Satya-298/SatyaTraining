@@ -1,0 +1,49 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
+<f:view>
+<html>
+<head>
+    <title>Trip Settlement Summary</title>
+</head>
+<body>
+    <f:metadata>
+            <f:viewParam name="groupId" value="#{settlement.groupId}" />
+            <f:event type="preRenderView" listener="#{settlement.calculateSettlement}" />
+        </f:metadata>
+        <h:form>
+            <h2>Settlement Report</h2>
+
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value="Total Collected:" />
+                <h:outputText value="#{settlement.totalCollected}" />
+
+                <h:outputText value="Total Expenses:" />
+                <h:outputText value="#{settlement.totalExpenses}" />
+
+                <h:outputText value="Balance Per Member:" />
+                <h:outputText value="#{settlement.balancePerMember}" />
+
+                <h:outputText value="Admin Refund/Payable:" />
+                <h:outputText value="#{settlement.adminRefund}" />
+            </h:panelGrid>
+
+            <h3>Expenses Paid By Each Member</h3>
+            <h:dataTable value="#{settlement.paidByBreakup.entrySet().toArray()}" var="entry" border="1">
+                <h:column>
+                    <f:facet name="header">User ID</f:facet>
+                    <h:outputText value="#{entry.key}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Amount Paid</f:facet>
+                    <h:outputText value="#{entry.value}" />
+                </h:column>
+            </h:dataTable>
+
+            <br />
+            <h:commandButton value="Recalculate" action="#{settlement.calculateSettlement}" />
+        </h:form>
+    
+</body>
+</html>
+</f:view>

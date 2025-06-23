@@ -1,0 +1,37 @@
+package com.java.jsf.model;
+
+import java.sql.Date;
+
+public class Patient {
+	
+	private String PatientId;
+	private String PatientName;
+	private Date date;
+	public String getPatientId() {
+		return PatientId;
+	}
+	public void setPatientId(String patientId) {
+		PatientId = patientId;
+	}
+	public String getPatientName() {
+		return PatientName;
+	}
+	public void setPatientName(String patientName) {
+		PatientName = patientName;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	
+
+}
+
+
+//PatientId varchar(30),
+//PatientName varchar(30),
+//DoctorId varchar(30) REFERENCES Doctor(DoctorId),
+//DateOfBirth Date

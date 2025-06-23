@@ -1,0 +1,34 @@
+com.java.jsf.controller;
+
+import java.util.List;
+
+import com.java.jsf.dao.RestaurantDao;
+import com.java.jsf.dao.RestaurantDaoImpl;
+import com.java.jsf.model.Menu;
+import com.java.jsf.model.Restaurant;
+
+public class RestaurantController {
+	
+	private RestaurantDao restaurantDao = new RestaurantDaoImpl();
+	private Restaurant restaurant;
+	private List<Menu> menuList;
+
+	// getter/setter for menuList
+	public List<Menu> getMenuList() {
+		return menuList;
+	}
+	public void setMenuList(List<Menu> menuList) {
+		this.menuList = menuList;
+	}
+
+	// Show all restaurants
+	public List<Restaurant> showRestaurant() {
+		return restaurantDao.showRestaurantDao();
+	}
+
+	// This is the required method
+	public String loadMenus(Restaurant restaurant) {
+		this.menuList = restaurant.getMenus(); // or from DAO
+		return null;
+	}
+}

@@ -1,0 +1,20 @@
+package com.java.ejb.beans;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class EmployStatefulBean
+ */
+@Stateless
+@LocalBean
+public class EmployStatefulBean implements EmployStatefulBeanRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public EmployStatefulBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

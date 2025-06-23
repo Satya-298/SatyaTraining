@@ -1,0 +1,21 @@
+package com.java.ejb.beans;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class UsersJdbcBean
+ */
+@Stateless
+@Remote()
+public class UsersJdbcBean implements UsersJdbcBeanRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public UsersJdbcBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

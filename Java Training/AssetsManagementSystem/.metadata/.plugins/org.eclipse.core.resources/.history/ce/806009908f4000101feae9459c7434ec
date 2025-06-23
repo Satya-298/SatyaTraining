@@ -1,0 +1,13 @@
+package com.java.jsf.model;
+
+public class AssignedAsset {
+	
+	private int assignId;
+    private Asset asset;
+    private Employee employee;
+    private Admin admin;
+    private Date assignDate;
+    private Date returnDate;
+    private String status;
+
+}

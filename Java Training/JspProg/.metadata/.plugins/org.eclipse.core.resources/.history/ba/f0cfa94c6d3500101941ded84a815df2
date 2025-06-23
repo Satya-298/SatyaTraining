@@ -1,0 +1,73 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+import com.java.jsf.dao.MedicationHistoryDao;
+import com.java.jsf.model.MedicationHistory;
+import com.java.jsf.model.Patient;
+
+public class MedicationHistoryController {
+
+    private MedicationHistoryDao medicationHistoryDao; 
+    private MedicationHistory medicationHistory;
+    private List<MedicationHistory> medicalHistoryList;
+    private Patient patient= new Patient();
+    
+    private List<String> patientTests;
+
+    public List<String> getPatientTests() {
+        return patientTests;
+    }
+
+    public void setPatientTests(List<String> patientTests) {
+        this.patientTests = patientTests;
+    }
+
+    
+    public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public MedicationHistoryDao getMedicationHistoryDao() {
+        return medicationHistoryDao;
+    }
+
+    public void setMedicationHistoryDao(MedicationHistoryDao medicationHistoryDao) {
+        this.medicationHistoryDao = medicationHistoryDao;
+    }
+
+    public MedicationHistory getMedicationHistory() {
+        return medicationHistory;
+    }
+
+    public void setMedicationHistory(MedicationHistory medicationHistory) {
+        this.medicationHistory = medicationHistory;
+    }
+
+    public List<MedicationHistory> getMedicalHistoryList() {
+        return medicalHistoryList;
+    }
+
+    public void setMedicalHistoryList(List<MedicationHistory> medicalHistoryList) {
+        this.medicalHistoryList = medicalHistoryList;
+    }
+
+    
+    public String addMedicalHistory() {
+
+    	return medicationHistoryDao.addMedicalHistory(medicationHistory);
+    }
+
+    public String loadPatientMedicalHistory() {
+        medicalHistoryList = medicationHistoryDao.showPatientMedicalHistory(patient.getPatientId());
+        return null;
+    }
+
+    public List<String> loadPatientTests() {
+    	
+        return medicationHistoryDao.showPatientTests(patient.getPatientId());
+    }
+}

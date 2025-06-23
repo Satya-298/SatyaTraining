@@ -1,0 +1,18 @@
+package com.java.st;
+
+public class ConnectionString {
+	
+	private ConnectionString() {}
+	
+	private static ConnectionString cs;
+	public static ConnectionString getInstance() {
+		if (cs==null) {
+			cs = new ConnectionString();
+		}
+		return cs;
+	}
+
+	public String getCredentials(String db) {
+		String result=";"
+	}
+}

@@ -1,0 +1,52 @@
+package com.java.ejb.dao;
+
+import java.sql.Connection;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.java.jsf.model.Users;
+import com.java.jsf.util.SessionHelper;
+
+public class UsersDaoImpl implements UsersDao{
+
+	Connection conn;
+	
+	
+	@Override
+	public List<Users> showUsersDao() {
+		conn = SessionHelper.getSession();
+		session = sf.openSession();
+		Query query = session.getNamedQuery("showUsers");
+		List<Users> list = query.list();
+		
+		return list;
+	}
+
+	@Override
+	public String addUsersDao(Users users) {
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+		session.save(users);
+		trans.commit();
+		return "User Added Successfully";
+	}
+
+	@Override
+	public String deleteUsersDao(int id) {
+		sf = SessionHelper.getSession();
+		session = sf.openSession();
+		Transaction trans = session.beginTransaction();
+		Query query = session.getNamedQuery("deleteId");
+		query.setParameter("id", id);
+		query.executeUpdate();
+		trans.commit();
+		
+		return "User Deleted Successfully";
+	}
+
+}

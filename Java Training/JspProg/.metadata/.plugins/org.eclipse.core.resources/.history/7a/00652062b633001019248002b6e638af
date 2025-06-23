@@ -1,0 +1,57 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import javax.faces.event.ValueChangeEvent;
+
+import com.java.jsf.dao.RestaurantDao;
+import com.java.jsf.model.Restaurant;
+
+public class RestaurantController {
+	
+	private RestaurantDao restaurantDao;
+	private Restaurant restaurant;
+	
+	private String localCode;
+	
+	public RestaurantDao getRestaurantDao() {
+		return restaurantDao;
+	}
+	public void setRestaurantDao(RestaurantDao restaurantDao) {
+		this.restaurantDao = restaurantDao;
+	}
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+	
+	public RestaurantController() {
+
+	}
+	
+	public String getLocalCode() {
+		return localCode;
+	}
+
+	public void setLocalCode(String localCode) {
+		this.localCode = localCode;
+	}
+	
+	public void restaurantLocaleCodeChanged(ValueChangeEvent r) {
+		
+		this.localCode = r.getNewValue().toString();  // LocaleCode value in dropdown converted to String
+		System.out.println(this.localCode);
+	}
+	
+	public List<Restaurant> showRestaurant() {
+		return restaurantDao.showRestaurantDao();
+	}
+	
+	public List<String> getFoodType
+	
+	public List<Restaurant> getrestaurantListType() {
+		return restaurantDao.restaurantListByType(localCode);
+	}
+}

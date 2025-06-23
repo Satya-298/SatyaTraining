@@ -1,0 +1,6 @@
+package com.java.st;
+
+public abstract class Training {
+	abstract String getTrainingDetails();
+
+}

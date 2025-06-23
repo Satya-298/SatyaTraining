@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.java.hms.model.Appointment" table="appointment">
+        <id name="appointmentId" type="int" column="appointment_id">
+            <generator class="increment"/>
+        </id>
+
+        <!-- <!-- <many-to-one name="provider" class="com.java.hms.model.Provider" column="provider_id" not-null="true"/>
+        <many-to-one name="recipient" class="com.java.hms.model.Recipient" column="recipient_id" not-null="true"/>
+ --> -->
+        <property name="appointmentDate" column="appointment_date" type="date" not-null="true"/>
+        <property name="appointmentTime" column="appointment_time" type="time" not-null="true"/>
+
+        <property name="status" column="status" not-null="true">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.java.hms.model.AppointmentStatus</param>
+                <param name="useNamed">true</param> <!-- ordinal mapping -->
+            </type>
+        </property>
+
+        <property name="createdAt" column="created_at" type="timestamp" not-null="true"/>
+    </class>
+</hibernate-mapping>

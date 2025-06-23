@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<jsp:useBean id="complaintDao" class="com.jav.hib.dao.ComplaintDaoImpl" />
+	<c:set var="complaintList" value="${complaintDao.showComplaintDao()}" />
+	<table border="3" align="center">
+		<tr>
+   			<th>Complaint ID</th>
+   			<th>Complaint Type</th>
+   			<th>Description</th>
+   			<th>Complaint Date</th>
+   			<th>Severity</th>
+   			<th>Status</th>
+		</tr>
+		
+	<c:forEach var="complaint" items="${complaintList}">
+    	<tr>
+     	   	<td>${complaint.complaintId}</td>
+        	<td>${complaint.complaintType}</td>
+        	<td>${complaint.cDescription}</td>
+        	<td>${complaint.complaintDate}</td>
+        	<td>${complaint.severity}</td>
+        	<td>${complaint.status}</td>
+    	</tr>
+    </c:forEach>
+</table>
+	<a href="ComplaintAdd.jsp">Raise Complaint</a>
+</body>
+</html>

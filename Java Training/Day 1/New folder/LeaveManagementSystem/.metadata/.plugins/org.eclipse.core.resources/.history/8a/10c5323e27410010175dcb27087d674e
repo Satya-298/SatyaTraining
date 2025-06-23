@@ -1,0 +1,14 @@
+package com.java.lms.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.java.lms.model.Leave;
+
+public interface LeaveDao {
+
+	String applyLeave(Leave leave) throws ClassNotFoundException, SQLException;
+
+	List<Leave> showLeaveHistory(int empId) throws ClassNotFoundException, SQLException;
+
+}

@@ -1,0 +1,85 @@
+package com.java.jsf.controller;
+
+import java.sql.SQLException;
+import javax.naming.NamingException;
+
+import com.java.ejb.beans.MembersJdbcBeanRemote;
+import com.java.ejb.beans.RemoteHelperMembers;
+import com.java.ejb.model.GroupMembers;
+import com.java.ejb.model.Users;
+
+public class MembersController {
+
+    private MembersJdbcBeanRemote membersRemote;
+    private GroupMembers ejbMembers;
+    private Users admin;
+    private int groupId;
+
+    public MembersController() throws NamingException {
+        // Lookup remote EJB once at controller construction
+        membersRemote = RemoteHelperMembers.lookupRemoteStatelessMembers();
+    }
+
+    // Getters and setters for ejbMembers, admin, groupId
+    public GroupMembers getEjbMembers() {
+        if (ejbMembers == null) {
+            ejbMembers = new GroupMembers();
+            ejbMembers.setUsers(new Users());
+            ejbMembers.setGroups(new com.java.ejb.model.Groups());
+        }
+        return ejbMembers;
+    }
+
+    public void setEjbMembers(GroupMembers ejbMembers) {
+        this.ejbMembers = ejbMembers;
+    }
+
+    public Users getAdmin() {
+        if (admin == null) {
+            admin = new Users();
+        }
+        return admin;
+    }
+
+    public void setAdmin(Users admin) {
+        this.admin = admin;
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
+    }
+
+    // Action method called from UI (e.g. commandButton)
+    public String loginAndAddMembers() throws NamingException, ClassNotFoundException, SQLException {
+        // Step 1: Verify admin credentials
+        Users loggedInAdmin = membersRemote.getAdminByEmailandPassword(admin.getEmail(), admin.getPassword());
+        if (loggedInAdmin == null) {
+            // Add Faces message or handle error as needed
+            // e.g. FacesContext.getCurrentInstance().addMessage(...)
+            System.out.println("Invalid admin email/password.");
+            return null;
+        }
+
+        // Step 2: Check admin belongs to the group
+        boolean isAdmin = membersRemote.isAdminFound(loggedInAdmin.getId(), groupId);
+        if (!isAdmin) {
+            System.out.println("User is not admin of this group.");
+            return null;
+        }
+
+        // Step 3: Set admin and group info in member
+        ejbMembers.setUsers(loggedInAdmin);
+        ejbMembers.getGroups().setId(groupId);
+
+        // Step 4: Add member to group
+        String result = membersRemote.addMembers(ejbMembers);
+        System.out.println(result);
+
+        // Return navigation outcome or success page
+        return "GroupMembersDashboard?faces-redirect=true";
+    }
+}

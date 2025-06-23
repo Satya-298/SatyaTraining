@@ -1,0 +1,10 @@
+import java.rmi.RMISecurityManager;
+
+public class Server {
+	
+	public static void main(String[] args) {
+		
+		System.setSecurityManager(new RMISecurityManager());
+		Calc obj = new CAlcImpl()
+	}
+}

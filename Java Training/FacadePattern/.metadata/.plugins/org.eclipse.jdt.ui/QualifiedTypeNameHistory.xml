@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.java.facade.example1.Mcq"/>
+    <fullyQualifiedTypeName name="com.java.facade.example1.Practical"/>
+    <fullyQualifiedTypeName name="com.java.facade.example1.Project"/>
+    <fullyQualifiedTypeName name="com.java.facade.example1.HackerRank"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.FeverPatientFacade"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.ViralFeverPatientFacade"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.DopplerTest"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.BetaHcg"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.PregnantFacade"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.Creatine"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.BloodTest"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.HeartEchoTest"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.CreatineTest"/>
+    <fullyQualifiedTypeName name="com.java.facade.example2.KidneyPatientFacade"/>
+</qualifiedTypeNameHistroy>

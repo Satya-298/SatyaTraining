@@ -1,0 +1,21 @@
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RMISecurityManager;
+import java.rmi.RemoteException;
+
+public class Server {
+	
+	public static void main(String[] args) {
+		
+		System.setSecurityManager(new RMISecurityManager());
+		Calc obj = new CalcImpl();
+		try {
+			Naming.rebind("locahost", obj);
+		} catch (RemoteException | MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Server Is Ready...");
+		System.out.println("Waiting For Cline Requests...");
+	}
+}

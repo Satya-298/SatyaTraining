@@ -1,0 +1,78 @@
+package com.java.hms.model;
+
+import java.sql.Date;
+import java.sql.Time;
+
+public class ProviderAvailability {
+	
+	private int availabilityId;
+    private int providerId;
+    private Date availableDate;
+    private Time startTime;
+    private Time endTime;
+    private boolean isRecurring;
+    private String notes;
+    
+	public int getAvailabilityId() {
+		return availabilityId;
+	}
+	public void setAvailabilityId(int availabilityId) {
+		this.availabilityId = availabilityId;
+	}
+	public int getProviderId() {
+		return providerId;
+	}
+	public void setProviderId(int providerId) {
+		this.providerId = providerId;
+	}
+	public Date getAvailableDate() {
+		return availableDate;
+	}
+	public void setAvailableDate(Date availableDate) {
+		this.availableDate = availableDate;
+	}
+	public Time getStartTime() {
+		return startTime;
+	}
+	public void setStartTime(Time startTime) {
+		this.startTime = startTime;
+	}
+	public Time getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(Time endTime) {
+		this.endTime = endTime;
+	}
+	public boolean isRecurring() {
+		return isRecurring;
+	}
+	public void setRecurring(boolean isRecurring) {
+		this.isRecurring = isRecurring;
+	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	
+	public ProviderAvailability(int availabilityId, int providerId, Date availableDate, Time startTime, Time endTime,
+			boolean isRecurring, String notes) {
+		this.availabilityId = availabilityId;
+		this.providerId = providerId;
+		this.availableDate = availableDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.isRecurring = isRecurring;
+		this.notes = notes;
+	}
+	
+	public ProviderAvailability() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
+	
+    
+
+}

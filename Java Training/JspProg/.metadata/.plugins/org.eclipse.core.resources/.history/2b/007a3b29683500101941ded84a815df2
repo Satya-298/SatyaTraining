@@ -1,0 +1,65 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+import com.java.jsf.dao.MedicationHistoryDao;
+import com.java.jsf.model.MedicationHistory;
+import com.java.jsf.model.Patient;
+
+public class MedicationHistoryController {
+
+    private MedicationHistoryDao medicationHistoryDao; 
+    private MedicationHistory medicationHistory;
+    private List<MedicationHistory> medicalHistoryList;
+    private Patient patient;
+
+    // Getter & Setter for DAO (Required for JSF injection)
+    public MedicationHistoryDao getMedicationHistoryDao() {
+        return medicationHistoryDao;
+    }
+
+    public void setMedicationHistoryDao(MedicationHistoryDao medicationHistoryDao) {
+        this.medicationHistoryDao = medicationHistoryDao;
+    }
+
+    // Getter for MedicationHistory
+    public MedicationHistory getMedicationHistory() {
+        // Ensure patient is initialized if not already
+        if (medicationHistory.getPatient() == null) {
+            medicationHistory.setPatient(new Patient()); // Initialize patient if null
+        }
+        return medicationHistory;
+    }
+
+    // Setter for MedicationHistory
+    public void setMedicationHistory(MedicationHistory medicationHistory) {
+        this.medicationHistory = medicationHistory;
+    }
+
+    // Getter and Setter for Medical History List
+    public List<MedicationHistory> getMedicalHistoryList() {
+        return medicalHistoryList;
+    }
+
+    public void setMedicalHistoryList(List<MedicationHistory> medicalHistoryList) {
+        this.medicalHistoryList = medicalHistoryList;
+    }
+
+    
+    // Add new medication history (1)
+    public String addMedicalHistory() {
+
+    	return medicationHistoryDao.addMedicalHistory(medicationHistory); // Stay on the same page
+    }
+
+    // Show full medical history for a patient (2)
+    public List<MedicationHistory> loadPatientMedicalHistory() {
+
+    	return medicationHistoryDao.showPatientMedicalHistory(patient.getPatientId());
+    }
+
+    // Show only tests for a patient (3)
+    public List<String> loadPatientTests() {
+    	
+        return medicationHistoryDao.showPatientTests(patient.getPatientId());
+        }
+}

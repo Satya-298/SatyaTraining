@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;Employee.java&apos; to &apos;HibMailOtpExample/src/main/java/com.java.hib.model&apos;&#x0D;&#x0A;- Original project: &apos;HibMailOtpExample&apos;&#x0D;&#x0A;- Destination element: &apos;HibMailOtpExample/src/main/java/com.java.hib.model&apos;&#x0D;&#x0A;- Original element: &apos;com.java.hib.Employee.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.java.hib.model" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.java.hib{Employee.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1747027934108" units="1" version="1.0"/>
+</session>

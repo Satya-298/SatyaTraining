@@ -1,0 +1,20 @@
+package com.java.ejb;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class HelloBeanRemote
+ */
+@Stateless
+@LocalBean
+public class HelloBeanRemote implements HelloBeanRemoteRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public HelloBeanRemote() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

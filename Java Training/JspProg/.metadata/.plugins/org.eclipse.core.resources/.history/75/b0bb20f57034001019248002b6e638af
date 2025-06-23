@@ -1,0 +1,15 @@
+package com.java.jsf.model;
+
+public class MedicationHistory {
+	
+	private String medId;
+	private String medicines;
+	
+
+}
+
+
+//MedId varchar(30),
+//PatientId varchar(30) references Patient(patientId), 
+//Medicines varchar(30),
+//Tests varchar(30)

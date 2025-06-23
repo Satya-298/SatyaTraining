@@ -1,0 +1,37 @@
+package com.java.jsf.controller;
+
+import java.sql.SQLException;
+
+import com.java.jsf.dao.AdminDao;
+import com.java.jsf.dao.EmployeeDao;
+import com.java.jsf.model.Admin;
+import com.java.jsf.model.Employee;
+
+public class EmployeeController {
+
+    private EmployeeDao employeeDao;
+    private Employee employee;
+	
+	public EmployeeDao getEmployeeDao() {
+		return employeeDao;
+	}
+	public void setEmployeeDao(EmployeeDao employeeDao) {
+		this.employeeDao = employeeDao;
+	}
+	public Employee getEmployee() {
+		return employee;
+	}
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	// Add Admin
+	public String addEmployee() throws ClassNotFoundExcep {
+		return employeeDao.addEmployee(employee);
+	}
+
+    // Login admin
+    public String addEmployee() throws ClassNotFoundException, SQLException {
+    	return employeeDao.addEmployee(employee.getEmail(), employee.getPassword());
+    }
+}

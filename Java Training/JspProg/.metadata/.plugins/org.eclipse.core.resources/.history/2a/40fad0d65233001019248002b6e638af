@@ -1,0 +1,46 @@
+package com.java.jsf.dao;
+
+import java.util.List;
+
+import javax.faces.event.ValueChangeEvent;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+
+import com.java.jsf.model.Restaurant;
+import com.java.jsf.util.SessionHelper;
+
+public class RestaurantDaoImpl implements RestaurantDao {
+
+	SessionFactory sf;
+	Session session;
+
+
+
+	@Override
+	public List<Restaurant> showRestaurantDao() {
+		sf = SessionHelper.getConnection();
+		session = sf.openSession();
+		Query query = session.getNamedQuery("showRestaurant");
+		List<Restaurant> list = query.list();
+			
+		return list;
+	}
+	
+	public void restaurantLocaleCodeChanged(ValueChangeEvent r) {
+		
+		this.localCode = r.getNewValue().toString();  // LocaleCode value in dropdown converted to String
+		System.out.println(this.localCode);
+	}
+	
+	public List<Restaurant> restaurantListByType(String flag) {
+		sf = SessionHelper.getConnection();
+		session = sf.openSession();
+		Criteria cr = session.createCriteria(Restaurant.class);
+		cr.add(Restrictions.eq("flag", flag));
+		return cr.list();
+	}
+}

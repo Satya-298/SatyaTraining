@@ -1,0 +1,34 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import com.java.jsf.dao.RestaurantDao;
+import com.java.jsf.model.Restaurant;
+
+public class RestaurantController {
+	
+	private RestaurantDao restaurantDao;
+	private Restaurant restaurant;
+	
+	public RestaurantDao getRestaurantDao() {
+		return restaurantDao;
+	}
+	public void setRestaurantDao(RestaurantDao restaurantDao) {
+		this.restaurantDao = restaurantDao;
+	}
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+	
+	public RestaurantController() {
+
+	}
+	
+	public List<Restaurant> shwoRestaurantDao
+	
+	
+
+}

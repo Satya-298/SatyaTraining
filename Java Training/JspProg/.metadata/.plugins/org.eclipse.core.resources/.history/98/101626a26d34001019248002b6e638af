@@ -1,0 +1,14 @@
+package com.java.jsf.model;
+
+public class Patient {
+	
+	private String PatientId;
+	
+
+}
+
+
+//PatientId varchar(30),
+//PatientName varchar(30),
+//DoctorId varchar(30) REFERENCES Doctor(DoctorId),
+//DateOfBirth Date

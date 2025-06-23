@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.java.jsf.model">
+
+  <class name="Users" table="users">
+
+    <id name="id" column="id" type="int">
+      <generator class="increment"/>
+    </id>
+
+    <property name="name" column="name" type="java.langstring"/>
+    <property name="email" column="email" type="string"/>
+    <property name="created_at" column="created_at" type="timestamp"/>
+
+    <!-- One user can be member of many groups -->
+    <set name="groupMembers" inverse="true" cascade="all" lazy="true">
+      <key column="user_id"/>
+      <one-to-many class="com.java.jsf.model.GroupMembers"/>
+    </set>
+
+    <!-- One user can pay many expenses -->
+    <set name="expensesPaid" inverse="true" cascade="all" lazy="true">
+      <key column="paid_by_user_id"/>
+      <one-to-many class="com.java.jsf.model.Expenses"/>
+    </set>
+
+    <!-- One user can have many expense splits -->
+    <set name="splits" inverse="true" cascade="all" lazy="true">
+      <key column="user_id"/>
+      <one-to-many class="com.java.jsf.model.Splits"/>
+    </set>
+
+  </class>
+
+  <!-- Named Queries -->
+  <query name="showUsers">
+    from Users
+  </query>
+
+  <query name="deleteId">
+    delete from Users where id = :id
+  </query>
+
+</hibernate-mapping>

@@ -1,0 +1,96 @@
+package com.java.ejb;
+
+import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.Set;
+
+public class Expenses {
+	
+	private int id;
+	private int group_id;
+	private int paid_by_user_id;
+	private String description;
+	private double total_amount;
+	private Date expense_date;
+	private LocalDateTime created_at;
+	
+	private Set<ExpenseSplits> splits;
+	
+	public Set<ExpenseSplits> getSplits() {
+		return splits;
+	}
+	public void setSplits(Set<ExpenseSplits> splits) {
+		this.splits = splits;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getGroup_id() {
+		return group_id;
+	}
+	public void setGroup_id(int group_id) {
+		this.group_id = group_id;
+	}
+	public int getPaid_by_user_id() {
+		return paid_by_user_id;
+	}
+	public void setPaid_by_user_id(int paid_by_user_id) {
+		this.paid_by_user_id = paid_by_user_id;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public double getTotal_amount() {
+		return total_amount;
+	}
+	public void setTotal_amount(double total_amount) {
+		this.total_amount = total_amount;
+	}
+	public Date getExpense_date() {
+		return expense_date;
+	}
+	public void setExpense_date(Date expense_date) {
+		this.expense_date = expense_date;
+	}
+	public LocalDateTime getCreated_at() {
+		return created_at;
+	}
+	public void setCreated_at(LocalDateTime created_at) {
+		this.created_at = created_at;
+	}
+	
+	public Expenses(int id, int group_id, int paid_by_user_id, String description, double total_amount,
+			Date expense_date, LocalDateTime created_at, Set<ExpenseSplits> splits) {
+		this.id = id;
+		this.group_id = group_id;
+		this.paid_by_user_id = paid_by_user_id;
+		this.description = description;
+		this.total_amount = total_amount;
+		this.expense_date = expense_date;
+		this.created_at = created_at;
+		this.splits = splits;
+	}
+	public Expenses() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+}
+
+
+//CREATE TABLE expenses (
+//	    id INT AUTO_INCREMENT PRIMARY KEY,
+//	    group_id INT NOT NULL,
+//	    paid_by_user_id INT NOT NULL,
+//	    description VARCHAR(255) NOT NULL,
+//	    total_amount DECIMAL(10,2) NOT NULL,
+//	    expense_date DATE NOT NULL,
+//	    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+//	    FOREIGN KEY (group_id) REFERENCES group_s(id),
+//	    FOREIGN KEY (paid_by_user_id) REFERENCES users(id)
+//	);

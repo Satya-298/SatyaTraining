@@ -1,0 +1,23 @@
+
+May 08, 2025 10:51:02.36 NEW SESSION
+May 08, 2025 10:51:02.37 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 08, 2025 10:51:02.37 Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#-1 is a dynamic-sized tensor).
+May 08, 2025 16:59:44.17 [27968:9452:0508/165944.170:ERROR:new_tab_page_handler.cc(1345)] NewTabPage loaded into a non-browser-tab context
+May 09, 2025 09:45:43.06 [27968:9452:0509/094543.064:ERROR:interface_endpoint_client.cc(725)] Message 5 rejected by interface blink.mojom.WidgetHost
+May 09, 2025 15:10:39.77 [27968:9452:0509/151039.768:ERROR:interface_endpoint_client.cc(725)] Message 5 rejected by interface blink.mojom.WidgetHost
+May 09, 2025 18:32:42.92 [27968:9452:0509/183242.920:ERROR:interface_endpoint_client.cc(725)] Message 5 rejected by interface blink.mojom.WidgetHost
+May 09, 2025 23:12:22.14 [27968:9452:0509/231222.143:ERROR:new_tab_page_handler.cc(1345)] NewTabPage loaded into a non-browser-tab context
+May 09, 2025 23:12:22.86 [27968:9452:0509/231222.862:ERROR:new_tab_page_handler.cc(1345)] NewTabPage loaded into a non-browser-tab context
+May 09, 2025 23:12:23.43 [27968:9452:0509/231223.437:ERROR:new_tab_page_handler.cc(1345)] NewTabPage loaded into a non-browser-tab context
+May 09, 2025 23:12:41.95 [27968:9452:0509/231241.945:ERROR:new_tab_page_handler.cc(1345)] NewTabPage loaded into a non-browser-tab context
+
+May 12, 2025 10:50:18.69 NEW SESSION
+May 12, 2025 10:50:18.70 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 12, 2025 10:50:18.73 Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#-1 is a dynamic-sized tensor).
+
+May 19, 2025 15:27:38.54 NEW SESSION
+May 19, 2025 15:27:38.55 [13944:672:0519/152738.545:ERROR:chrome\browser\ui\views\frame\browser_view.cc:5932] Attempting to show IPH IPH_TabSearchToolbarButton before browser initialization; IPH will not be shown.
+May 19, 2025 15:27:43.68 Created TensorFlow Lite XNNPACK delegate for CPU.
+May 19, 2025 15:27:43.71 Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#-1 is a dynamic-sized tensor).
+May 19, 2025 15:35:43.54 [13944:672:0519/153543.548:ERROR:chrome\browser\ui\views\frame\browser_view.cc:5932] Attempting to show IPH IPH_TabSearchToolbarButton before browser initialization; IPH will not be shown.
+May 19, 2025 22:09:36.61 [13944:672:0519/220936.610:ERROR:mojo\public\cpp\bindings\lib\interface_endpoint_client.cc:725] Message 1 rejected by interface blink.mojom.WidgetHost

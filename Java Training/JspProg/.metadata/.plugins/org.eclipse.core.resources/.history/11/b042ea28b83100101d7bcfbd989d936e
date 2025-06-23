@@ -1,0 +1,71 @@
+package com.java.jsf.controller;
+
+import java.util.List;
+
+import com.java.jsf.dao.RestaurantDao;
+import com.java.jsf.dao.RestaurantDaoImpl;
+import com.java.jsf.model.Menu;
+import com.java.jsf.model.Restaurant;
+
+public class RestaurantController {
+
+	private RestaurantDao restaurantDao = new RestaurantDaoImpl();
+	private Restaurant restaurant = new Restaurant();
+	private List<Menu> menuList;
+
+	public RestaurantController() {
+		// default constructor
+	}
+
+	public RestaurantDao getRestaurantDao() {
+		return restaurantDao;
+	}
+
+	public void setRestaurantDao(RestaurantDao restaurantDao) {
+		this.restaurantDao = restaurantDao;
+	}
+
+	public Restaurant getRestaurant() {
+		return restaurant;
+	}
+
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
+	}
+
+	public List<Menu> getMenuList() {
+		return menuList;
+	}
+
+	public void setMenuList(List<Menu> menuList) {
+		this.menuList = menuList;
+	}
+
+	// List all restaurants
+	public List<Restaurant> showRestaurant() {
+		return restaurantDao.showRestaurantDao();
+	}
+
+
+	// Used by JSF to check and render menu table
+	public List<Menu> getSelectedMenuList() {
+		return menuList;
+	}
+	
+	private int expandedRestaurantId = -1;
+
+	public int getExpandedRestaurantId() {
+	    return expandedRestaurantId;
+	}
+
+	public void setExpandedRestaurantId(int expandedRestaurantId) {
+	    this.expandedRestaurantId = expandedRestaurantId;
+	}
+
+	public String loadMenus(Restaurant selectedRestaurant) {
+	    this.menuList = restaurantDao.getMenusByRestaurantId(selectedRestaurant.getRestaurantId());
+	    this.expandedRestaurantId = selectedRestaurant.getRestaurantId();
+	    return null;
+	}
+
+}

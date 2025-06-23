@@ -1,0 +1,11 @@
+package com.java.jsf.dao;
+
+import com.java.jsf.model.Asset;
+
+public interface AssetDao {
+
+	String addAsset(Asset asset);
+
+	Asset searchAssetById(int assetId);
+
+}

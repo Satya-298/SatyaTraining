@@ -1,0 +1,77 @@
+package com.java.hms.model;
+
+import java.util.Date;
+import java.sql.Time;
+import java.sql.Timestamp;
+
+public class Appointment {
+	
+	private int appointmentId;
+    private Date appointmentDate;
+    private Time appointmentTime;
+    private AppointmentStatus status;  
+    private Timestamp createdAt;
+    
+//    private Provider provider;
+//    private Recipient recipient;
+    
+	public int getAppointmentId() {
+		return appointmentId;
+	}
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+	
+	public Date getAppointmentDate() {
+		return appointmentDate;
+	}
+	public void setAppointmentDate(Date appointmentDate) {
+		this.appointmentDate = appointmentDate;
+	}
+	public Time getAppointmentTime() {
+		return appointmentTime;
+	}
+	public void setAppointmentTime(Time appointmentTime) {
+		this.appointmentTime = appointmentTime;
+	}
+	public AppointmentStatus getStatus() {
+		return status;
+	}
+	public void setStatus(AppointmentStatus status) {
+		this.status = status;
+	}
+	public Timestamp getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+	public Provider getProvider() {
+		return provider;
+	}
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+	public Recipient getRecipient() {
+		return recipient;
+	}
+	public void setRecipient(Recipient recipient) {
+		this.recipient = recipient;
+	}
+	
+	public Appointment(int appointmentId, Date appointmentDate, Time appointmentTime, AppointmentStatus status,
+			Timestamp createdAt, Provider provider, Recipient recipient) {
+		this.appointmentId = appointmentId;
+		this.appointmentDate = appointmentDate;
+		this.appointmentTime = appointmentTime;
+		this.status = status;
+		this.createdAt = createdAt;
+		this.provider = provider;
+		this.recipient = recipient;
+	}
+	
+	public Appointment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+}

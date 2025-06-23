@@ -1,0 +1,59 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.naming.NamingException;
+
+public class UsersEjbImpl {
+	
+	static UsersJdbcBeanRemote remote;
+	static {
+		try {
+			remote = RemoteHelper.lookupRemoteStatelessUsers();
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public String addUsersValid(com.java.ejb.Users users) throws ClassNotFoundException, SQLException {
+		boolean isValid = true;
+		FacesContext context = FacesContext.getCurrentInstance();
+		
+		if (users.getId() <= 0) {
+            context.addMessage("id", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "User ID Invalid", "User ID must be greater than zero."));
+            context.validationFailed();
+            isValid = false;
+        }
+		
+		if (users.getName() == null || users.getName().length() < 5 || users.getName().length() > 30) {
+			context.addMessage("name", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"User Name Invalid", "User Name must be between 5 and 30"));
+			context.validationFailed();
+			isValid = false;
+		}
+		
+		String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(users.getEmail());
+        
+        if (users.getEmail() == null || !matcher.matches()) {
+            context.addMessage("email", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Email Invalid", "Enter a valid email address."));
+            context.validationFailed();
+            isValid = false;
+        }
+
+        if (isValid == false) {
+        	return null;
+        }
+        remote.addUsers(users);
+        return "UsersDashboard?faces-redirect=true";
+	}
+
+}

@@ -1,0 +1,19 @@
+package com.java.ejb.beans;
+
+import java.sql.SQLException;
+
+import javax.ejb.Remote;
+
+import com.java.ejb.model.GroupMembers;
+import com.java.ejb.model.Users;
+
+@Remote
+public interface MembersJdbcBeanRemote {
+	
+String addMemberToGroup(GroupMembers members) throws ClassNotFoundException, SQLException;
+	
+	boolean isAdminOfGroup(int adminId, int groupId) throws ClassNotFoundException, SQLException;	
+	
+	Users getAdminByCredentials(String email, String password) throws ClassNotFoundException, SQLException;
+
+}

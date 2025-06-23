@@ -1,0 +1,38 @@
+package com.java.hms.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.java.hms.dao.ProviderDao;
+import com.java.hms.dao.ProviderDaoImpl;
+import com.java.hms.model.Gender;
+import com.java.hms.model.Provider;
+
+public class ProviderController {
+	
+	private ProviderDao providerDao;
+	private Provider provider;
+	
+	public ProviderDao getProviderDao() {
+		return providerDao;
+	}
+	public void setProviderDao(ProviderDao providerDao) {
+		this.providerDao = providerDao;
+	}
+	public Provider getProvider() {
+		return provider;
+	}
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+	
+	public String addProvider() {
+		System.out.println("");
+		return providerDao.addProvider(provider);
+	}
+	
+	public List<Gender> getGenderList() {
+        return Arrays.asList(Gender.values());
+    }
+
+}

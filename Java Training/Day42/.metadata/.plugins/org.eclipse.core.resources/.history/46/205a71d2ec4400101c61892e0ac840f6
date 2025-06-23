@@ -1,0 +1,16 @@
+package com.java.ims.model;
+
+public class InsurancePlan {
+	
+	private int planId;
+    private InsuranceCompany company; 
+    private String planName;
+    private double startPremium;
+    private String description;
+    private int maxAge;
+    private int minAge;
+    private double waingPeriod;
+    private String ped;
+    private String status = "ACTIVE";
+
+}

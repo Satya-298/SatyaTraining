@@ -1,0 +1,11 @@
+package com.java.jsf.dao;
+
+import com.java.jsf.model.Admin;
+
+public interface AdminDao {
+	
+    String addAdmin(Admin admin);
+
+    Admin loginAdmin(String email, String password);
+
+}

@@ -1,0 +1,42 @@
+package com.java.jdbc.dao;
+
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.java.jdbc.model.IncidentType;
+import com.java.jdbc.model.Incidents;
+import com.java.jdbc.model.Reports;
+import com.java.jdbc.model.Status;
+
+public interface ICrimeAnalysisService {
+	
+	boolean createIncident(Incidents incident) throws ClassNotFoundException, SQLException;
+	boolean updateIncidentStatus(Status status, int incidentId) throws ClassNotFoundException, SQLException;
+	List<Incidents> getIncidentsInDateRange(Date startDate, Date endDate) throws ClassNotFoundException, SQLException;
+	List<Incidents> searchIncidents(IncidentType criteria);
+	Reports generateIncidentReport(Incidents incident);
+
+}
+
+
+//// Create a new incident
+//createIncident();
+//parameters- Incident object
+//return type Boolean
+//// Update the status of an incident
+//updateIncidentStatus();
+//parameters- Status object,incidentid
+//return type Boolean
+//// Get a list of incidents within a date range
+//getIncidentsInDateRange();
+//parameters- startDate, endDate
+//return type Collection of Incident objects
+//// Search for incidents based on various criteria
+//searchIncidents(IncidentType criteria);
+//parameters- IncidentType object
+//return type Collection of Incident objects
+//// Generate incident reports
+//generateIncidentReport();
+//parameters- Incident object
+//return type Report object

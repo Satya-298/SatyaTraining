@@ -1,0 +1,54 @@
+package com.java.jsf.dao;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
+
+import com.java.jsf.model.Admin;
+import com.java.jsf.util.EncryptPassword;
+import com.java.jsf.util.SessionHelper;
+
+public class AdminDaoImpl implements AdminDao{
+	
+	SessionFactory sf;
+	Session session;
+	
+	@Override
+	public String addAdmin(Admin admin) throws ClassNotFoundException {
+	    String encryptedPwd = EncryptPassword.getCode(admin.getPassword());
+	    admin.setPassword(encryptedPwd);
+	    
+	    sf = SessionHelper.getSession();
+	    session = sf.openSession();
+	    Transaction tx = session.beginTransaction();
+
+	    session.save(admin);
+	    tx.commit();
+	    session.close();
+
+	    return "LoginAdmin.jsp?faces-redirect=true";
+	}
+	@Override
+	public String loginAdmin(String email, String password) throws ClassNotFoundException {
+	    Session session = sf.openSession();
+
+	    String encryptedPassword = EncryptPassword.getCode(password);
+
+	    Criteria criteria = session.createCriteria(Admin.class);
+	    criteria.add(Restrictions.eq("email", email));
+	    criteria.add(Restrictions.eq("password", encryptedPassword));
+	    criteria.setProjection(Projections.rowCount());
+
+	    Long count = (Long) criteria.uniqueResult();
+	    session.close();
+
+	    return (count != null && count > 0)
+	        ? "AssetDashboard.jsp?faces-redirect=true"
+	        : "LoginAdmin.jsp?faces-redirect=true";
+	}
+
+
+}

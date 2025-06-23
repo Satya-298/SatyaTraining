@@ -1,0 +1,21 @@
+package com.java.ejb.Groupsbeans;
+
+import javax.naming.NamingException;
+
+public class GroupsEjbImpl {
+	
+	static GroupsJdbcBeanRemote remote;
+	static {
+		try {
+			remote = RemoteHelperGroups.lookupRemoteStatelessGroups();
+			System.out.println("S Remove  " +remote);
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+}

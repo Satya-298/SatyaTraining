@@ -1,0 +1,39 @@
+package com.java.ejb.GroupsBeans;
+
+import java.sql.SQLException;
+
+import javax.ejb.LocalBean;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+import com.java.ejb.dao.GroupsDao;
+import com.java.ejb.dao.GroupsDaoImpl;
+import com.java.ejb.model.Groups;
+
+/**
+ * Session Bean implementation class GroupsJdbcBean
+ */
+@Stateless
+@Remote(GroupsJdbcBeanRemote.class)
+public class GroupsJdbcBean implements GroupsJdbcBeanRemote {
+
+	static GroupsDao daoImpl;
+	
+	static {
+		daoImpl = new GroupsDaoImpl();
+	}
+	
+    /**
+     * Default constructor. 
+     */
+    public GroupsJdbcBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+	@Override
+	public String addGroupsDao(Groups groups) throws ClassNotFoundException, SQLException {
+
+		return daoImpl.addGroupsDao(groups);
+	}
+
+}
